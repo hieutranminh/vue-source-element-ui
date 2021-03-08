@@ -1,0 +1,77 @@
+/* ============
+ * Main File
+ * ============
+ *
+ * Will initialize the application.
+ */
+
+import Vue from 'vue';
+
+/* ============
+ * Plugins
+ * ============
+ *
+ * Import and bootstrap the plugins.
+ */
+
+import './plugins/vuex';
+import { router } from './plugins/vue-router';
+import './plugins/axios';
+import './plugins/vuex-router-sync';
+import './plugins/register-service-worker';
+import './plugins/lazyload';
+import './plugins/validation';
+import './plugins/admin-lte3';
+import './plugins/element-ui';
+import { i18n } from './plugins/i18n';
+
+/* ============
+ * Styling
+ * ============
+ */
+
+import './assets/scss/main.scss';
+
+/* ============
+ * Main App
+ * ============
+ *
+ * Last but not least, we import the main application.
+ */
+
+import App from './App.vue';
+import store from './store';
+
+Vue.config.productionTip = false;
+
+store.dispatch('auth/check');
+
+/* eslint-disable no-new */
+new Vue({
+  /**
+   * Bind the Vue instance to the HTML.
+   */
+  el: '#app',
+
+  /**
+   * The localization plugin.
+   */
+  i18n,
+
+  /**
+   * The router.
+   */
+  router,
+
+  /**
+   * The Vuex store.
+   */
+  store,
+
+  /**
+   * Will render the application.
+   *
+   * @param {Function} h Will create an element.
+   */
+  render: (h) => h(App),
+});
