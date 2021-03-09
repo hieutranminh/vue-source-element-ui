@@ -16,6 +16,7 @@ import Vue from 'vue';
 
 import './plugins/vuex';
 import { router } from './plugins/vue-router';
+import { i18n } from './plugins/i18n';
 import './plugins/axios';
 import './plugins/vuex-router-sync';
 import './plugins/register-service-worker';
@@ -23,7 +24,6 @@ import './plugins/lazyload';
 import './plugins/validation';
 import './plugins/admin-lte3';
 import './plugins/element-ui';
-import { i18n } from './plugins/i18n';
 
 /* ============
  * Styling

@@ -1,0 +1,24 @@
+.label {
+  font-size: 14px;
+  color: #333333;
+
+  .required {
+    color: #cd201f;
+  }
+}
+
+.has-error {
+  .el-input {
+    input {
+      border: 1px solid #cd201f;
+    }
+
+    &__suffix {
+      color: #cd201f;
+    }
+  }
+  .errors {
+    color: #cd201f;
+    font-size: 12px;
+  }
+}

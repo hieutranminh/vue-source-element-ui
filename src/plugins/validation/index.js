@@ -38,9 +38,9 @@ configure({
     const text = field.toLowerCase();
 
     // eslint-disable-next-line no-param-reassign,no-underscore-dangle
-    values._field_ = i18n.t(`fields.${text}`);
+    values._field_ = i18n.t(`${text}`);
 
     // eslint-disable-next-line no-underscore-dangle
-    return i18n.t(`validations.messages.${values._rule_}`, values);
+    return i18n.t(`validation.${values._rule_}`, values);
   },
 });

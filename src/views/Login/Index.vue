@@ -3,77 +3,47 @@
     id="login"
     class="login"
   >
-    <div class="card card-info">
+    <div class="card">
+      <!--Logo-->
       <div class="card-header">
-        <h3 class="card-title">
-          {{ $t('auth.success') }}
-        </h3>
+        <img
+          src="../../assets/images/logo-default.svg"
+          alt="logo"
+        >
       </div>
-      <!-- /.card-header -->
-      <!-- form start -->
-      <form class="form-horizontal">
-        <div class="card-body">
-          <div class="form-group row">
-            <label
-              for="inputEmail3"
-              class="col-sm-2 col-form-label"
-            >Email</label>
-            <div class="col-sm-10">
-              <input
-                id="inputEmail3"
-                type="email"
-                class="form-control"
-                placeholder="Email"
-              >
-            </div>
-          </div>
-          <div class="form-group row">
-            <label
-              for="inputPassword3"
-              class="col-sm-2 col-form-label"
-            >Password</label>
-            <div class="col-sm-10">
-              <input
-                id="inputPassword3"
-                type="password"
-                class="form-control"
-                placeholder="Password"
-              >
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="offset-sm-2 col-sm-10">
-              <div class="form-check">
-                <input
-                  id="exampleCheck2"
-                  type="checkbox"
-                  class="form-check-input"
-                >
-                <label
-                  class="form-check-label"
-                  for="exampleCheck2"
-                >Remember me</label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <button
-            type="submit"
-            class="btn btn-info"
-          >
-            Sign in
-          </button>
-          <button
-            type="submit"
-            class="btn btn-default float-right"
-          >
-            Cancel
-          </button>
-        </div>
-        <!-- /.card-footer -->
-      </form>
+
+      <!--Form-->
+      <div class="card-body">
+        <ValidationObserver
+          ref="observer"
+          tag="form"
+          @submit.prevent="validateBeforeSubmit"
+        >
+          <!--Username-->
+          <InputField
+            v-model="form.username"
+            rules="required"
+            vid="username"
+            size="medium"
+            icon="el-icon-user"
+            class="mb-3"
+            :field="$t('auth.username')"
+            :label="$t('auth.username')"
+          />
+
+          <!--Password-->
+          <InputField
+            v-model="form.password"
+            rules="required"
+            vid="password"
+            size="medium"
+            icon="el-icon-lock"
+            class="mb-3"
+            :field="$t('auth.password')"
+            :label="$t('auth.password')"
+          />
+        </ValidationObserver>
+      </div>
     </div>
   </VLayout>
 </template>
@@ -87,6 +57,7 @@
  */
 
 import VLayout from '@/layouts/Auth.vue';
+import InputField from '@/components/Form/InputField.vue';
 
 export default {
   /**
@@ -98,6 +69,7 @@ export default {
    * The components the page can use.
    */
   components: {
+    InputField,
     VLayout,
   },
 
@@ -108,9 +80,9 @@ export default {
    */
   data() {
     return {
-      user: {
-        email: null,
-        password: null,
+      form: {
+        username: '',
+        password: '',
       },
     };
   },
@@ -124,8 +96,17 @@ export default {
      *
      * @param {Object} user The user to be logged in.
      */
-    login(user) {
-      this.$store.dispatch('auth/login', user);
+    async validateBeforeSubmit() {
+      const isValid = await this.$refs.observer.validate();
+
+      if (isValid) {
+        this.handleSubmit();
+      }
+    },
+
+    handleSubmit() {
+      console.log('Submit API');
+      // this.$store.dispatch('auth/login', user);
     },
   },
 };
@@ -137,5 +118,17 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .card {
+      width: 500px;
+      box-shadow: none;
+      &-header {
+        text-align: center;
+        border: none;
+      }
+      &-body {
+
+      }
+    }
   }
 </style>
