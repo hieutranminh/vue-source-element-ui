@@ -10,15 +10,11 @@ import Vue from 'vue';
 /* ============
  * Plugins
  * ============
- *
- * Import and bootstrap the plugins.
  */
-
 import './plugins/vuex';
 import { router } from './plugins/vue-router';
 import { i18n } from './plugins/i18n';
 import './plugins/axios';
-import './plugins/vuex-router-sync';
 import './plugins/register-service-worker';
 import './plugins/lazyload';
 import './plugins/validation';

@@ -38,10 +38,20 @@
             vid="password"
             size="medium"
             icon="el-icon-lock"
-            class="mb-3"
+            type="password"
             :field="$t('auth.password')"
             :label="$t('auth.password')"
           />
+
+          <!--Submit-->
+          <button
+            class="btn btn-block bg-gradient-primary font-weight-bold"
+            :disabled="isSubmit"
+            :class="{'disabled': isSubmit}"
+            type="submit"
+          >
+            {{ $t('auth.login') }}
+          </button>
         </ValidationObserver>
       </div>
     </div>
@@ -80,6 +90,7 @@ export default {
    */
   data() {
     return {
+      isSubmit: false,
       form: {
         username: '',
         password: '',
@@ -100,13 +111,18 @@ export default {
       const isValid = await this.$refs.observer.validate();
 
       if (isValid) {
+        this.isSubmit = true;
+
         this.handleSubmit();
       }
     },
 
     handleSubmit() {
-      console.log('Submit API');
-      // this.$store.dispatch('auth/login', user);
+      setTimeout(() => {
+        this.isSubmit = false;
+      }, 2000);
+
+      this.$store.dispatch('auth/login');
     },
   },
 };
@@ -127,7 +143,9 @@ export default {
         border: none;
       }
       &-body {
-
+        button {
+          margin-top: 40px;
+        }
       }
     }
   }

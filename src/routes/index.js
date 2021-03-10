@@ -6,6 +6,10 @@
  */
 
 export default [
+  {
+    path: '/',
+    redirect: '/home',
+  },
   // Home
   {
     path: '/home',
@@ -42,23 +46,7 @@ export default [
     },
   },
 
-  // Register
-  {
-    path: '/register',
-    name: 'register.index',
-    component: () => import('@/views/Register/Index.vue'),
-
-    // If the user needs to be a guest to view this page.
-    meta: {
-      guest: true,
-    },
-  },
-
-  {
-    path: '/',
-    redirect: '/home',
-  },
-
+  // Page not found
   {
     path: '/*',
     redirect: '/home',
