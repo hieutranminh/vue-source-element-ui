@@ -66,6 +66,7 @@
  * Page where the user can login.
  */
 
+import { mapActions } from 'vuex';
 import VLayout from '@/layouts/Auth.vue';
 import InputField from '@/components/Form/InputField.vue';
 
@@ -102,11 +103,8 @@ export default {
    * The methods the page can use.
    */
   methods: {
-    /**
-     * Will log the user in.
-     *
-     * @param {Object} user The user to be logged in.
-     */
+    ...mapActions('auth', ['login']),
+
     async validateBeforeSubmit() {
       const isValid = await this.$refs.observer.validate();
 
@@ -122,7 +120,7 @@ export default {
         this.isSubmit = false;
       }, 2000);
 
-      this.$store.dispatch('auth/login');
+      this.login(this.form);
     },
   },
 };

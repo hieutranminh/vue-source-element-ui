@@ -1,6 +1,6 @@
 // Config Axios
 export const axiosConfig = {
-  baseURL: process.env.VUE_APP_API_CLIENT_ID,
+  baseURL: process.env.VUE_APP_API_LOCATION,
   headers: {
     'Content-Type': 'application/json',
   },
