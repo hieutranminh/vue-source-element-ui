@@ -5,16 +5,20 @@
  * The actions that are available on the
  * auth module.
  */
-import {
-  login,
-} from '@/services/auth.service';
+import AuthProxy from '@/proxies/AuthProxy';
 import * as types from './mutation-types';
 
 export default {
   login({ commit }, params) {
-    return login(params).then(() => {
-      commit(types.LOGIN);
-    });
+    new AuthProxy()
+      .login(params)
+      .then((res) => {
+        console.log('res proxy', res);
+        commit(types.LOGIN);
+      })
+      .catch(() => {
+        console.log('Request failed...');
+      });
   },
 
   logout({ commit }) {
