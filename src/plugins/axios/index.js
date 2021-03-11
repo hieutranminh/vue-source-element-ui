@@ -14,6 +14,13 @@ import Axios from 'axios';
 
 Axios.defaults.baseURL = process.env.VUE_APP_API_LOCATION;
 Axios.defaults.headers.common.Accept = 'application/json';
+Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+Axios.interceptors.request.use(
+  (config) => config,
+  (error) => Promise.reject(error),
+);
+
 Axios.interceptors.response.use(
   (response) => response,
   (error) => Promise.reject(error),

@@ -21,7 +21,7 @@
         >
           <!--Username-->
           <InputField
-            v-model="form.username"
+            v-model="form.login_id"
             rules="required"
             vid="username"
             size="medium"
@@ -33,7 +33,7 @@
 
           <!--Password-->
           <InputField
-            v-model="form.password"
+            v-model="form.login_password"
             rules="required"
             vid="password"
             size="medium"
@@ -93,8 +93,9 @@ export default {
     return {
       isSubmit: false,
       form: {
-        username: '',
-        password: '',
+        company_code: '123123123',
+        login_id: '123123123',
+        login_password: '123123123',
       },
     };
   },
@@ -116,11 +117,14 @@ export default {
     },
 
     handleSubmit() {
-      setTimeout(() => {
+      this.login(this.form).then((res) => {
         this.isSubmit = false;
-      }, 2000);
 
-      this.login(this.form);
+        if (res.token) {
+          this.$router.push({ name: 'home.index' });
+        }
+        // check submit error
+      });
     },
   },
 };

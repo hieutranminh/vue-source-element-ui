@@ -4,6 +4,7 @@
  *
  * The routes and redirects are defined in this file.
  */
+import { AuthGuard, LoginGuard, ResolveGuard } from '@/guards';
 
 export default [
   {
@@ -20,6 +21,7 @@ export default [
     meta: {
       auth: true,
     },
+    beforeEnter: ResolveGuard([AuthGuard]),
   },
 
   // Account
@@ -44,6 +46,7 @@ export default [
     meta: {
       guest: true,
     },
+    beforeEnter: ResolveGuard([LoginGuard]),
   },
 
   // Page not found

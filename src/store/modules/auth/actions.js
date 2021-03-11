@@ -10,11 +10,12 @@ import * as types from './mutation-types';
 
 export default {
   login({ commit }, params) {
-    new AuthProxy()
+    return new AuthProxy()
       .login(params)
       .then((res) => {
-        console.log('res proxy', res);
-        commit(types.LOGIN);
+        commit(types.LOGIN, res);
+
+        return res;
       })
       .catch(() => {
         console.log('Request failed...');

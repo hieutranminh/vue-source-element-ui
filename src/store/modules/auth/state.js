@@ -7,4 +7,6 @@
 
 export default {
   authenticated: false,
+  token: null,
+  exp_token: null,
 };
