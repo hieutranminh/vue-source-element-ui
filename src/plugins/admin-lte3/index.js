@@ -5,4 +5,6 @@ try {
 
   // eslint-disable-next-line global-require
   require('admin-lte');
+  // eslint-disable-next-line global-require
+  require('admin-lte/docs_html/assets/plugins/bootstrap/js/bootstrap.bundle.min');
 } catch (e) { throw e; }

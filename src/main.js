@@ -4,8 +4,8 @@
  *
  * Will initialize the application.
  */
-
 import Vue from 'vue';
+import App from './App';
 
 /* ============
  * Plugins
@@ -35,7 +35,6 @@ import './assets/scss/main.scss';
  * Last but not least, we import the main application.
  */
 
-import App from './App.vue';
 import store from './store';
 
 Vue.config.productionTip = false;
