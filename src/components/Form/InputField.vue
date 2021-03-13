@@ -4,25 +4,21 @@
     tag="div"
     :name="field"
     :vid="vid"
-    :rules="rules"
-  >
+    :rules="rules">
     <!--Label-->
     <label
       v-if="label"
-      class="label"
-    >
+      class="label">
       {{ label }}
 
       <span
         v-if="rules.includes('required')"
         class="required"
-        v-text="'*'"
-      />
+        v-text="'*'" />
     </label>
     <!--Input-->
     <div
-      :class="{'has-error': errors[0]}"
-    >
+      :class="{'has-error': errors[0]}">
       <el-input
         :suffix-icon="icon"
         :type="type"
@@ -31,14 +27,12 @@
         :value="value"
         :size="size"
         :maxlength="maxLength"
-        @input="handleType($event)"
-      />
+        @input="handleType($event)" />
 
       <!--Message Error-->
       <span
         v-if="errors[0]"
-        class="errors"
-      >
+        class="errors">
         {{ errors[0] }}
       </span>
     </div>
@@ -51,72 +45,72 @@ export default {
 
   model: {
     prop: 'value',
-    event: 'change',
+    event: 'change'
   },
 
   props: {
     label: {
       type: String,
-      default: '',
+      default: ''
     },
 
     field: {
       type: String,
-      default: '',
+      default: ''
     },
 
     rules: {
       type: String,
-      default: '',
+      default: ''
     },
 
     vid: {
       type: String,
-      default: '',
+      default: ''
     },
 
     placeholder: {
       type: String,
-      default: '',
+      default: ''
     },
 
     value: {
       type: [String, Number],
-      default: '',
+      default: ''
     },
 
     disabledInput: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     type: {
       type: String,
-      default: 'text',
+      default: 'text'
     },
 
     maxLength: {
       type: [String, Number],
-      default: '',
+      default: ''
     },
 
     size: {
       type: String,
-      default: 'small',
+      default: 'small'
     },
 
     icon: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
 
   methods: {
-    handleType($event) {
-      this.$emit('change', $event);
-    },
-  },
-};
+    handleType ($event) {
+      this.$emit('change', $event)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -9,5 +9,5 @@
 export default {
   authenticated: (state) => state.authenticated,
   token: (state) => state.token,
-  exp_token: (state) => state.exp_token,
-};
+  exp_token: (state) => state.exp_token
+}

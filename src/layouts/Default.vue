@@ -18,35 +18,35 @@
  * This way the app stays clean.
  */
 
-import Header from '@/components/Header';
+import Header from '@/components/Header'
 
 export default {
   name: 'DefaultLayout',
 
   components: {
-    Header,
+    Header
   },
 
-  data() {
+  data () {
     return {
-      menuCollapsed: false,
-    };
+      menuCollapsed: false
+    }
   },
 
   methods: {
     /**
      * Will log the user out.
      */
-    logout() {
-      this.$store.dispatch('auth/logout');
+    logout () {
+      this.$store.dispatch('auth/logout')
     },
 
     /**
      * Will toggle the menu.
      */
-    toggleMenu() {
-      this.menuCollapsed = !this.menuCollapsed;
-    },
-  },
-};
+    toggleMenu () {
+      this.menuCollapsed = !this.menuCollapsed
+    }
+  }
+}
 </script>

@@ -4,12 +4,12 @@
  *
  * The routes and redirects are defined in this file.
  */
-import { AuthGuard, LoginGuard, ResolveGuard } from '@/guards';
+import { AuthGuard, LoginGuard, ResolveGuard } from '@/guards'
 
 export default [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/home'
   },
   // Home
   {
@@ -19,9 +19,9 @@ export default [
 
     // If the user needs to be authenticated to view this page
     meta: {
-      auth: true,
+      auth: true
     },
-    beforeEnter: ResolveGuard([AuthGuard]),
+    beforeEnter: ResolveGuard([AuthGuard])
   },
 
   // Account
@@ -32,8 +32,9 @@ export default [
 
     // If the user needs to be authenticated to view this page.
     meta: {
-      auth: true,
+      auth: true
     },
+    beforeEnter: ResolveGuard([AuthGuard])
   },
 
   // Login
@@ -44,14 +45,14 @@ export default [
 
     // If the user needs to be a guest to view this page.
     meta: {
-      guest: true,
+      guest: true
     },
-    beforeEnter: ResolveGuard([LoginGuard]),
+    beforeEnter: ResolveGuard([LoginGuard])
   },
 
   // Page not found
   {
     path: '/*',
-    redirect: '/home',
-  },
-];
+    redirect: '/home'
+  }
+]

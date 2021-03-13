@@ -8,16 +8,16 @@
  * http://router.vuejs.org/en/index.html
  */
 
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import routes from '@/routes';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import routes from '@/routes'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 export const router = new VueRouter({
-  routes,
-});
+  routes
+})
 
 export default {
-  router,
-};
+  router
+}

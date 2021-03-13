@@ -1,15 +1,13 @@
 <template>
   <VLayout
     id="login"
-    class="login"
-  >
+    class="login">
     <div class="card">
       <!--Logo-->
       <div class="card-header">
         <img
           src="../../assets/images/logo-default.svg"
-          alt="logo"
-        >
+          alt="logo">
       </div>
 
       <!--Form-->
@@ -17,8 +15,7 @@
         <ValidationObserver
           ref="observer"
           tag="form"
-          @submit.prevent="validateBeforeSubmit"
-        >
+          @submit.prevent="validateBeforeSubmit">
           <!--Username-->
           <InputField
             v-model="form.login_id"
@@ -28,8 +25,7 @@
             icon="el-icon-user"
             class="mb-3"
             :field="$t('auth.username')"
-            :label="$t('auth.username')"
-          />
+            :label="$t('auth.username')" />
 
           <!--Password-->
           <InputField
@@ -40,16 +36,14 @@
             icon="el-icon-lock"
             type="password"
             :field="$t('auth.password')"
-            :label="$t('auth.password')"
-          />
+            :label="$t('auth.password')" />
 
           <!--Submit-->
           <button
             class="btn btn-block bg-gradient-primary font-weight-bold"
             :disabled="isSubmit"
             :class="{'disabled': isSubmit}"
-            type="submit"
-          >
+            type="submit">
             {{ $t('auth.login') }}
           </button>
         </ValidationObserver>
@@ -59,75 +53,54 @@
 </template>
 
 <script>
-/* ============
- * Login Index Page
- * ============
- *
- * Page where the user can login.
- */
-
-import { mapActions } from 'vuex';
-import VLayout from '@/layouts/Auth.vue';
-import InputField from '@/components/Form/InputField.vue';
+import { mapActions } from 'vuex'
+import VLayout from '@/layouts/Auth'
+import InputField from '@/components/Form/InputField'
 
 export default {
-  /**
-   * The name of the page.
-   */
   name: 'LoginIndex',
 
-  /**
-   * The components the page can use.
-   */
   components: {
     InputField,
-    VLayout,
+    VLayout
   },
 
-  /**
-   * The data that can be used by the page.
-   *
-   * @returns {Object} The view-model data.
-   */
-  data() {
+  data () {
     return {
       isSubmit: false,
       form: {
         company_code: '123123123',
         login_id: '123123123',
-        login_password: '123123123',
-      },
-    };
+        login_password: '123123123'
+      }
+    }
   },
 
-  /**
-   * The methods the page can use.
-   */
   methods: {
     ...mapActions('auth', ['login']),
 
-    async validateBeforeSubmit() {
-      const isValid = await this.$refs.observer.validate();
+    async validateBeforeSubmit () {
+      const isValid = await this.$refs.observer.validate()
 
       if (isValid) {
-        this.isSubmit = true;
+        this.isSubmit = true
 
-        this.handleSubmit();
+        this.handleSubmit()
       }
     },
 
-    handleSubmit() {
+    handleSubmit () {
       this.login(this.form).then((res) => {
-        this.isSubmit = false;
+        this.isSubmit = false
 
         if (res.token) {
-          this.$router.push({ name: 'home.index' });
+          this.$router.push({ name: 'home.index' })
         }
         // check submit error
-      });
-    },
-  },
-};
+      })
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

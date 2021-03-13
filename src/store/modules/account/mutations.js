@@ -6,13 +6,11 @@
  * account module.
  */
 
-import { FIND } from './mutation-types';
+import { SET_PROFILE } from './mutation-types'
 
 /* eslint-disable no-param-reassign */
 export default {
-  [FIND](state, account) {
-    state.email = account.email;
-    state.firstName = account.firstName;
-    state.lastName = account.lastName;
-  },
-};
+  [SET_PROFILE] (state, payload) {
+    state.profile = payload
+  }
+}

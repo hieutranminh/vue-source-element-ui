@@ -3,7 +3,13 @@
     <v-card contextual-style="dark">
       <span slot="header">
         My Account
+        <a
+          class="btn btn-outline-primary"
+          @click.prevent="$router.push({name: 'home.index'})">aaaaaaa</a>
       </span>
+      <a
+        class="btn btn-outline-primary"
+        @click.prevent="$router.push({name: 'home.index'})">aaaaaaa</a>
       <div slot="body">
         <table class="table table-striped">
           <thead>
@@ -49,8 +55,8 @@
  * Page where the user can view the account information.
  */
 
-import VLayout from '@/layouts/Default.vue';
-import VCard from '@/components/Card.vue';
+import VLayout from '@/layouts/Default.vue'
+import VCard from '@/components/Card.vue'
 
 export default {
   /**
@@ -63,7 +69,7 @@ export default {
    */
   components: {
     VLayout,
-    VCard,
-  },
-};
+    VCard
+  }
+}
 </script>

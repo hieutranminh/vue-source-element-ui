@@ -1,4 +1,4 @@
-import Proxy from './Proxy';
+import Proxy from './Proxy'
 
 class AccountProxy extends Proxy {
   /**
@@ -6,9 +6,9 @@ class AccountProxy extends Proxy {
    *
    * @param {Object} parameters The query parameters.
    */
-  constructor(parameters = {}) {
-    super('api/account', parameters);
+  constructor (parameters = {}) {
+    super('auth/profile', parameters)
   }
 }
 
-export default AccountProxy;
+export default AccountProxy

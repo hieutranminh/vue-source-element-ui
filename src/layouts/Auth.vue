@@ -20,6 +20,6 @@ export default {
   /**
    * The name of the layout.
    */
-  name: 'AuthLayout',
-};
+  name: 'AuthLayout'
+}
 </script>

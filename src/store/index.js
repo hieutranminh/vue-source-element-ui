@@ -7,13 +7,13 @@
  * http://vuex.vuejs.org/en/index.html
  */
 
-import Vuex from 'vuex';
+import Vuex from 'vuex'
 
 // Modules
-import account from './modules/account';
-import auth from './modules/auth';
+import account from './modules/account'
+import auth from './modules/auth'
 
-const debug = process.env.NODE_ENV !== 'production';
+const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
   /**
@@ -21,11 +21,11 @@ export default new Vuex.Store({
    */
   modules: {
     account,
-    auth,
+    auth
   },
 
   /**
    * If strict mode should be enabled.
    */
-  strict: debug,
-});
+  strict: debug
+})
