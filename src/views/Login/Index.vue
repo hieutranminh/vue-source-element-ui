@@ -93,7 +93,7 @@ export default {
       this.login(this.form).then((res) => {
         this.isSubmit = false
 
-        if (res.token) {
+        if (res && res.token) {
           this.$router.push({ name: 'home.index' })
         }
         // check submit error
