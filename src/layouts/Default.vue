@@ -1,7 +1,11 @@
 <template>
   <div class="main-layout">
-    <!--HEADER-->
+    <!-- HEADER -->
     <Header />
+
+    <!-- SIDEBAR -->
+    <Sidebar />
+
     <!-- Content will be placed here -->
     <slot />
   </div>
@@ -19,11 +23,13 @@
  */
 
 import Header from '@/components/Header'
+import Sidebar from '@/components/Sidebar'
 
 export default {
   name: 'DefaultLayout',
 
   components: {
+    Sidebar,
     Header
   },
 

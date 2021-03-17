@@ -25,6 +25,12 @@ export default {
   },
 
   [LOGOUT] (state) {
-    console.log('mudation LOGOUT', state)
+    state.authenticated = false
+    state.token = null
+    state.exp_token = null
+
+    // Remove cookie
+    Cookie.remove('token')
+    Cookie.remove('exp_token')
   }
 }

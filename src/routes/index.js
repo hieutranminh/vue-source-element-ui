@@ -11,6 +11,7 @@ export default [
     path: '/',
     redirect: '/home'
   },
+
   // Home
   {
     path: '/home',
@@ -18,19 +19,6 @@ export default [
     component: () => import('@/views/Home/Index.vue'),
 
     // If the user needs to be authenticated to view this page
-    meta: {
-      auth: true
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
-  },
-
-  // Account
-  {
-    path: '/account',
-    name: 'account.index',
-    component: () => import('@/views/Account/Index.vue'),
-
-    // If the user needs to be authenticated to view this page.
     meta: {
       auth: true
     },
