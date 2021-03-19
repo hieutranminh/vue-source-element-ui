@@ -4,9 +4,11 @@
     <router-link
       :to="{name: 'home.index'}"
       class="brand-link text-center">
-      <img
-        src="../assets/images/logo-default.svg"
-        alt="Logo">
+      <span class="brand-text font-weight-light d-inline-block">
+        <img
+          src="../assets/images/logo-default.svg"
+          alt="Logo">
+      </span>
     </router-link>
 
     <!-- Sidebar -->
@@ -62,8 +64,14 @@
 </template>
 
 <script>
+import $ from 'jquery'
+
 export default {
-  name: 'Sidebar'
+  name: 'Sidebar',
+
+  mounted () {
+    $('[data-widget="treeview"]').Treeview('init')
+  }
 }
 </script>
 

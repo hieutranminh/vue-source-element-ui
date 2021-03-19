@@ -1,5 +1,5 @@
 <template>
-  <div class="main-layout">
+  <div class="main-layout wrapper">
     <!-- HEADER -->
     <Header />
 
@@ -7,52 +7,32 @@
     <Sidebar />
 
     <!-- Content will be placed here -->
-    <slot />
+    <div class="content-wrapper">
+      <!--BREADCRUMB-->
+      <Breadcrumb />
+
+      <!--Pages-->
+      <div class="content">
+        <div class="container-fluid">
+          <slot />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-/* ============
- * Default Layout
- * ============
- *
- * Used for the home and account pages.
- *
- * Layouts are used to store a lot of shared code.
- * This way the app stays clean.
- */
-
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export default {
   name: 'DefaultLayout',
 
   components: {
     Sidebar,
-    Header
-  },
-
-  data () {
-    return {
-      menuCollapsed: false
-    }
-  },
-
-  methods: {
-    /**
-     * Will log the user out.
-     */
-    logout () {
-      this.$store.dispatch('auth/logout')
-    },
-
-    /**
-     * Will toggle the menu.
-     */
-    toggleMenu () {
-      this.menuCollapsed = !this.menuCollapsed
-    }
+    Header,
+    Breadcrumb
   }
 }
 </script>

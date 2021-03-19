@@ -1,26 +1,21 @@
 <template>
   <VLayout>
-    <div class="card">
-      HOME PAGE
-    </div>
+    Input
   </VLayout>
 </template>
 
 <script>
-/* ============
- * Home Index Page
- * ============
- *
- * The home index page.
- */
-
 import VLayout from '@/layouts/Default'
 
 export default {
-  name: 'HomeIndex',
+  name: 'ElementInput',
 
   components: {
     VLayout
   }
 }
 </script>
+
+<style scoped>
+
+</style>

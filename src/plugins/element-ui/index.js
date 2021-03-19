@@ -5,7 +5,9 @@ import locale from 'element-ui/lib/locale'
 import {
   Button,
   Input,
-  Select
+  Select,
+  Breadcrumb,
+  BreadcrumbItem
 } from 'element-ui'
 
 // configure language
@@ -15,3 +17,5 @@ locale.use(enLocale)
 Vue.use(Button)
 Vue.use(Input)
 Vue.use(Select)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
