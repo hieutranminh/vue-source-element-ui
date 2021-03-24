@@ -6,7 +6,23 @@
  */
 import { AuthGuard, LoginGuard, ResolveGuard } from '@/guards'
 
+// MODULE
+import ElementUIRoute from './modules/element_ui'
+
 export default [
+  // Login
+  {
+    path: '/login',
+    name: 'login.index',
+    component: () => import('@/views/Login/Index.vue'),
+
+    // If the user needs to be a guest to view this page.
+    meta: {
+      guest: true
+    },
+    beforeEnter: ResolveGuard([LoginGuard])
+  },
+
   {
     path: '/',
     redirect: '/home'
@@ -25,17 +41,20 @@ export default [
     beforeEnter: ResolveGuard([AuthGuard])
   },
 
-  // Login
-  {
-    path: '/login',
-    name: 'login.index',
-    component: () => import('@/views/Login/Index.vue'),
+  // Module
+  ...ElementUIRoute,
 
-    // If the user needs to be a guest to view this page.
+  // Editor
+  {
+    path: '/editor',
+    name: 'editor.index',
+    component: () => import('@/views/Editor/Index.vue'),
+
+    // If the user needs to be authenticated to view this page
     meta: {
-      guest: true
+      auth: true
     },
-    beforeEnter: ResolveGuard([LoginGuard])
+    beforeEnter: ResolveGuard([AuthGuard])
   },
 
   // Page not found

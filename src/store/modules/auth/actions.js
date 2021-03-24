@@ -23,6 +23,13 @@ export default {
   },
 
   logout ({ commit }) {
-    commit(types.LOGOUT)
+    return new AuthProxy()
+      .logout()
+      .then((res) => {
+        commit(types.LOGOUT)
+      })
+      .catch(() => {
+        console.log('Request failed...')
+      })
   }
 }

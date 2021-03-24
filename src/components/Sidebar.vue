@@ -20,42 +20,44 @@
           data-widget="treeview"
           role="menu"
           data-accordion="false">
-          <li class="nav-item">
-            <a
-              href="#"
+          <li
+            v-for="(item, index) of NAVIGATIONS"
+            :key="index"
+            class="nav-item">
+            <!--Not dropdown-->
+            <router-link
+              v-if="!item.dropdown"
+              :key="item.id"
+              :to="{name: item.routeName}"
               class="nav-link">
-              <i class="fas fa-circle nav-icon" />
-              <p>Level 1</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              href="#"
-              class="nav-link">
-              <i class="nav-icon fas fa-tree" />
-              <p>
-                UI Elements
-                <i class="fas fa-angle-left right" />
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a
-                  href="pages/UI/general.html"
-                  class="nav-link">
-                  <i class="far fa-circle nav-icon" />
-                  <p>General</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a
-              href="#"
-              class="nav-link">
-              <i class="fas fa-circle nav-icon" />
-              <p>Level 1</p>
-            </a>
+              <i
+                class="nav-icon"
+                :class="item.icon" />
+              <p v-text="$t('navigation.'+item.title)" />
+            </router-link>
+
+            <!--Dropdown-->
+            <template v-else>
+              <a
+                href="#"
+                class="nav-link">
+                <i class="nav-icon fas fa-tree" />
+                <p>
+                  UI Elements
+                  <i class="fas fa-angle-left right" />
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a
+                    href="pages/UI/general.html"
+                    class="nav-link">
+                    <i class="far fa-circle nav-icon" />
+                    <p>General</p>
+                  </a>
+                </li>
+              </ul>
+            </template>
           </li>
         </ul>
       </nav>
@@ -65,12 +67,21 @@
 
 <script>
 import $ from 'jquery'
+import { NAVIGATIONS } from '@/enum/navigations'
 
 export default {
   name: 'Sidebar',
 
+  data () {
+    return {
+      NAVIGATIONS
+    }
+  },
+
   mounted () {
-    $('[data-widget="treeview"]').Treeview('init')
+    console.log('abc')
+    $('[data-widget="treeview"]')
+      .Treeview('init')
   }
 }
 </script>

@@ -13,42 +13,49 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
+        <!--Icon Dropdown-->
         <a
-          class="nav-link"
+          class="nav-link d-flex align-items-center"
           data-toggle="dropdown"
           href="#">
-          <i class="far fa-bell" />
-          <span class="badge badge-warning navbar-badge">15</span>
+          <i class="far fa-user" />
         </a>
+
+        <!--Dropdown item-->
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="media p-3 align-items-center">
+            <img
+              src="../assets/images/img-default.jpeg"
+              alt="User Avatar"
+              class="img-size-50 mr-3 img-circle">
+
+            <div class="media-info">
+              <h3
+                class="text-lg mb-0"
+                v-text="$t('auth.no_name')" />
+
+              <b
+                class="text-sm text-success"
+                v-text="'Administrator'" />
+            </div>
+          </div>
+
+          <!--Line-->
           <div class="dropdown-divider" />
-          <a
-            href="#"
-            class="dropdown-item">
-            <i class="fas fa-envelope mr-2" /> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider" />
-          <a
-            href="#"
-            class="dropdown-item">
-            <i class="fas fa-users mr-2" /> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider" />
-          <a
-            href="#"
-            class="dropdown-item">
-            <i class="fas fa-file mr-2" /> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider" />
-          <a
-            href="#"
-            class="dropdown-item dropdown-footer">See All Notifications</a>
+
+          <!--Actions-->
+          <div class="dropdown-footer d-flex justify-content-between">
+            <button
+              class="btn btn-sm bg-gradient-primary w-100"
+              @click.prevent="goProfile"
+              v-text="$t('auth.profile')" />
+
+            <button
+              class="btn btn-sm bg-gradient-warning w-100 ml-3"
+              @click.prevent="handleLogout"
+              v-text="$t('auth.logout')" />
+          </div>
         </div>
       </li>
     </ul>
@@ -56,8 +63,28 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: 'Header'
+  name: 'Header',
+
+  methods: {
+    ...mapActions('auth', ['logout']),
+
+    goProfile () {
+      console.log('go profile')
+    },
+
+    async handleLogout () {
+      try {
+        await this.logout()
+      } catch (e) {
+        return e
+      }
+
+      await this.$router.push({ name: 'login.index' })
+    }
+  }
 }
 </script>
 

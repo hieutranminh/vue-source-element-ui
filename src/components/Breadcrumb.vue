@@ -1,7 +1,7 @@
 <template>
-  <div class="d-flex justify-content-between align-items-center mb-3 p-3 bg-white">
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 p-3 bg-white">
     <h4
-      class="mb-0"
+      class="mb-2 mb-md-0"
       v-text="'Home'" />
 
     <el-breadcrumb separator="/">

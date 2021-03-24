@@ -18,6 +18,13 @@ class AuthProxy extends Proxy {
   }
 
   /**
+   * Method used to logout.
+   */
+  logout () {
+    return this.submit('delete', `${this.endpoint}/logout`)
+  }
+
+  /**
    * Method used to register the user.
    */
   register (data = {}) {
