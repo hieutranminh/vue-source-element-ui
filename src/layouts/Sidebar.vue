@@ -21,14 +21,16 @@
           role="menu"
           data-accordion="false">
           <li
-            v-for="(item, index) of NAVIGATIONS"
-            :key="index"
+            v-for="item of NAVIGATIONS"
+            :key="item.id"
             class="nav-item">
             <!--Not dropdown-->
             <router-link
               v-if="!item.dropdown"
               :key="item.id"
               :to="{name: item.routeName}"
+              :exact="true"
+              active-class="active"
               class="nav-link">
               <i
                 class="nav-icon"
@@ -40,21 +42,33 @@
             <template v-else>
               <a
                 href="#"
-                class="nav-link">
-                <i class="nav-icon fas fa-tree" />
+                class="nav-link"
+                :class="{'active': $route.name.includes(item.title)}">
+                <i
+                  class="nav-icon"
+                  :class="item.icon" />
                 <p>
-                  UI Elements
+                  {{ $t('navigation.'+item.title) }}
                   <i class="fas fa-angle-left right" />
                 </p>
               </a>
+
+              <!--Dropdown items-->
               <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a
-                    href="pages/UI/general.html"
+                <li
+                  v-for="subItem in item.dropdownItems"
+                  :key="subItem.id"
+                  class="nav-item">
+                  <router-link
+                    :to="{name: subItem.routeName}"
+                    active-class="active"
+                    :exact="true"
                     class="nav-link">
-                    <i class="far fa-circle nav-icon" />
-                    <p>General</p>
-                  </a>
+                    <i
+                      class="nav-icon"
+                      :class="subItem.icon" />
+                    <p v-text="$t('navigation.'+subItem.title)" />
+                  </router-link>
                 </li>
               </ul>
             </template>
@@ -79,7 +93,6 @@ export default {
   },
 
   mounted () {
-    console.log('abc')
     $('[data-widget="treeview"]')
       .Treeview('init')
   }

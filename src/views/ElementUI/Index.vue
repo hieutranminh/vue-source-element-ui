@@ -1,17 +1,14 @@
 <template>
-  <VLayout>
+  <section
+    id="el-ui"
+    class="el-ui">
     <router-view />
-  </VLayout>
+  </section>
 </template>
 
 <script>
-import VLayout from '@/layouts/Default'
 
 export default {
-  name: 'ElementUIIndex',
-
-  components: {
-    VLayout
-  }
+  name: 'ElementUIIndex'
 }
 </script>

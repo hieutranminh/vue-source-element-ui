@@ -1,13 +1,13 @@
 <template>
   <div>
-    Input
+    Date Picker
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'ElementInput'
+  name: 'ElementDatePicker'
 }
 </script>
 

@@ -1,13 +1,13 @@
 <template>
   <div>
-    Input
+    Check
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'ElementInput'
+  name: 'ElementCheck'
 }
 </script>
 

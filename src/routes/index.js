@@ -25,41 +25,43 @@ export default [
 
   {
     path: '/',
-    redirect: '/home'
-  },
+    component: () => import('@/views/Index'),
+    children: [
+      // Home
+      {
+        path: '/home',
+        name: 'home.index',
+        component: () => import('@/views/Home/Index.vue'),
 
-  // Home
-  {
-    path: '/home',
-    name: 'home.index',
-    component: () => import('@/views/Home/Index.vue'),
+        // If the user needs to be authenticated to view this page
+        meta: {
+          auth: true
+        },
+        beforeEnter: ResolveGuard([AuthGuard])
+      },
 
-    // If the user needs to be authenticated to view this page
-    meta: {
-      auth: true
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
-  },
+      // Module
+      ...ElementUIRoute,
 
-  // Module
-  ...ElementUIRoute,
+      // Editor
+      {
+        path: '/editor',
+        name: 'editor.index',
+        component: () => import('@/views/Editor/Index.vue'),
 
-  // Editor
-  {
-    path: '/editor',
-    name: 'editor.index',
-    component: () => import('@/views/Editor/Index.vue'),
+        // If the user needs to be authenticated to view this page
+        meta: {
+          auth: true
+        },
+        beforeEnter: ResolveGuard([AuthGuard])
+      },
 
-    // If the user needs to be authenticated to view this page
-    meta: {
-      auth: true
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
-  },
-
-  // Page not found
-  {
-    path: '/*',
-    redirect: '/home'
+      // Page not found
+      {
+        path: '/*',
+        redirect: '/home'
+      }
+    ]
   }
+
 ]

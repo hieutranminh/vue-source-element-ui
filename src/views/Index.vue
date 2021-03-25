@@ -14,7 +14,7 @@
       <!--Pages-->
       <div class="content">
         <div class="container-fluid">
-          <slot />
+          <router-view />
         </div>
       </div>
     </div>
@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Sidebar from '@/components/Sidebar'
-import Breadcrumb from '@/components/Breadcrumb'
+import Header from '@/layouts/Header'
+import Sidebar from '@/layouts/Sidebar'
+import Breadcrumb from '@/layouts/Breadcrumb'
 
 export default {
-  name: 'DefaultLayout',
+  name: 'Index',
 
   components: {
     Sidebar,

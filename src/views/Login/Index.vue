@@ -1,5 +1,5 @@
 <template>
-  <VLayout
+  <section
     id="login"
     class="login">
     <div class="card">
@@ -49,20 +49,18 @@
         </ValidationObserver>
       </div>
     </div>
-  </VLayout>
+  </section>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-import VLayout from '@/layouts/Auth'
 import InputField from '@/components/Form/InputField'
 
 export default {
   name: 'LoginIndex',
 
   components: {
-    InputField,
-    VLayout
+    InputField
   },
 
   data () {

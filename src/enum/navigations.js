@@ -6,34 +6,34 @@ export const NAVIGATIONS = [
     routeName: 'home.index'
   },
   {
-    id: 'element_ui',
-    icon: 'fas fa-circle',
-    title: 'element_ui',
+    id: 'el_ui',
+    icon: 'fab fa-elementor',
+    title: 'el_ui',
     dropdown: true,
-    dropdownItem: [
+    dropdownItems: [
       {
-        id: 'element_ui_input',
-        icon: 'fas fa-circle',
-        title: 'element_ui_input',
-        routeName: 'element_ui.input'
+        id: 'el_ui_input',
+        icon: 'far fa-circle',
+        title: 'el_ui_input',
+        routeName: 'el_ui.input'
       },
       {
-        id: 'element_ui_select',
-        icon: 'fas fa-circle',
-        title: 'element_ui_select',
-        routeName: 'element_ui.select'
+        id: 'el_ui_select',
+        icon: 'far fa-circle',
+        title: 'el_ui_select',
+        routeName: 'el_ui.select'
       },
       {
-        id: 'element_ui_check',
-        icon: 'fas fa-circle',
-        title: 'element_ui_check',
-        routeName: 'element_ui.check'
+        id: 'el_ui_check',
+        icon: 'far fa-circle',
+        title: 'el_ui_check',
+        routeName: 'el_ui.check'
       },
       {
-        id: 'element_ui_date_picker',
-        icon: 'fas fa-circle',
-        title: 'element_ui_date_picker',
-        routeName: 'element_ui.date_picker'
+        id: 'el_ui_date_picker',
+        icon: 'far fa-circle',
+        title: 'el_ui_date_picker',
+        routeName: 'el_ui.date_picker'
       }
     ]
   },

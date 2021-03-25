@@ -6,6 +6,7 @@
  */
 
 import validationMessagesEnglish from 'vee-validate/dist/locale/en.json'
+import navigation from './navigation.json'
 import auth from './auth.json'
 import general from './general.json'
 
@@ -13,6 +14,7 @@ import general from './general.json'
 const customValidate = {}
 
 export default {
+  navigation,
   auth,
   general,
   validation: { ...validationMessagesEnglish.messages, ...customValidate }

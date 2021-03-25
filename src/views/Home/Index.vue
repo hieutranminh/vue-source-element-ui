@@ -1,26 +1,16 @@
 <template>
-  <VLayout>
+  <section
+    id="home"
+    class="home">
     <div class="card">
       HOME PAGE
     </div>
-  </VLayout>
+  </section>
 </template>
 
 <script>
-/* ============
- * Home Index Page
- * ============
- *
- * The home index page.
- */
-
-import VLayout from '@/layouts/Default'
 
 export default {
-  name: 'HomeIndex',
-
-  components: {
-    VLayout
-  }
+  name: 'HomeIndex'
 }
 </script>

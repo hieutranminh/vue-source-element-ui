@@ -1,13 +1,13 @@
 <template>
   <div>
-    Input
+    Select
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'ElementInput'
+  name: 'ElementSelect'
 }
 </script>
 

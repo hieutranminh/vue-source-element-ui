@@ -1,17 +1,12 @@
 <template>
-  <VLayout>
+  <div>
     Editor
-  </VLayout>
+  </div>
 </template>
 
 <script>
-import VLayout from '@/layouts/Default'
 
 export default {
-  name: 'EditorIndex',
-
-  components: {
-    VLayout
-  }
+  name: 'EditorIndex'
 }
 </script>
