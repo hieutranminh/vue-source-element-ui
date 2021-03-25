@@ -29,7 +29,6 @@
               v-if="!item.dropdown"
               :key="item.id"
               :to="{name: item.routeName}"
-              :exact="true"
               active-class="active"
               class="nav-link">
               <i

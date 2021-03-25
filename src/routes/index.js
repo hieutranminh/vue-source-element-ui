@@ -32,10 +32,11 @@ export default [
         path: '/home',
         name: 'home.index',
         component: () => import('@/views/Home/Index.vue'),
-
-        // If the user needs to be authenticated to view this page
         meta: {
-          auth: true
+          title: 'home',
+          breadcrumbs: [
+            { title: 'home', name: 'home.index' }
+          ]
         },
         beforeEnter: ResolveGuard([AuthGuard])
       },
@@ -48,10 +49,11 @@ export default [
         path: '/editor',
         name: 'editor.index',
         component: () => import('@/views/Editor/Index.vue'),
-
-        // If the user needs to be authenticated to view this page
         meta: {
-          auth: true
+          title: 'editor',
+          breadcrumbs: [
+            { title: 'editor', name: 'editor.index' }
+          ]
         },
         beforeEnter: ResolveGuard([AuthGuard])
       },
@@ -63,5 +65,4 @@ export default [
       }
     ]
   }
-
 ]
