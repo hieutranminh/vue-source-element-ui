@@ -12,7 +12,6 @@
         :key="index">
         <router-link
           :to="{name: item.name}"
-          tag="a"
           v-text="$t('breadcrumb.'+item.title)" />
       </el-breadcrumb-item>
     </el-breadcrumb>

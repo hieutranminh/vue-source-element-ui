@@ -22,7 +22,7 @@
             rules="required"
             vid="username"
             size="medium"
-            icon="el-icon-user"
+            suffix-icon="el-icon-user"
             class="mb-3"
             :field="$t('auth.username')"
             :label="$t('auth.username')" />
@@ -33,7 +33,7 @@
             rules="required"
             vid="password"
             size="medium"
-            icon="el-icon-lock"
+            suffix-icon="el-icon-lock"
             type="password"
             :field="$t('auth.password')"
             :label="$t('auth.password')" />

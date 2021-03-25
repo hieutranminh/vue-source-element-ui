@@ -20,13 +20,16 @@
     <div
       :class="{'has-error': errors[0]}">
       <el-input
-        :suffix-icon="icon"
+        :suffix-icon="suffixIcon"
+        :prefix-icon="prefixIcon"
         :type="type"
-        :disabled="disabledInput"
+        :disabled="disabled"
         :placeholder="placeholder"
         :value="value"
         :size="size"
         :maxlength="maxLength"
+        :clearable="clearable"
+        :show-password="showPassword"
         @input="handleType($event)" />
 
       <!--Message Error-->
@@ -79,7 +82,7 @@ export default {
       default: ''
     },
 
-    disabledInput: {
+    disabled: {
       type: Boolean,
       default: false
     },
@@ -96,12 +99,27 @@ export default {
 
     size: {
       type: String,
-      default: 'small'
+      default: ''
     },
 
-    icon: {
+    suffixIcon: {
       type: String,
       default: ''
+    },
+
+    prefixIcon: {
+      type: String,
+      default: ''
+    },
+
+    clearable: {
+      type: Boolean,
+      default: false
+    },
+
+    showPassword: {
+      type: Boolean,
+      default: false
     }
   },
 
