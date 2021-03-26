@@ -120,12 +120,49 @@
             :placeholder="'Show password'"
             :field="'Show password'"
             :label="'Show password'" />
+
+          <!--Limit character-->
+          <InputField
+            v-model="input.limit_character"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :max-length="10"
+            :show-word-limit="true"
+            :placeholder="'Limit character'"
+            :field="'Limit character'"
+            :label="'Limit character'" />
+
+          <!--Textarea auto size-->
+          <InputField
+            v-model="input.textarea_autosize"
+            type="textarea"
+            rules="required"
+            vid="vid"
+            class="mb-3"
+            :autosize="true"
+            :placeholder="'Textarea autosize'"
+            :field="'Textarea autosize'"
+            :label="'Textarea autosize'" />
+
+          <!--Textarea set size-->
+          <InputField
+            v-model="input.textarea_set_size"
+            type="textarea"
+            rules="required"
+            vid="vid"
+            class="mb-3"
+            :autosize="{minRows: 3, maxRows: 5}"
+            :placeholder="'Textarea set size'"
+            :field="'Textarea set size'"
+            :label="'Textarea set size'" />
         </div>
 
         <!--Object Data-->
         <div class="col-md-4">
           <div class="bg-light d-flex align-items-center h-100">
-            <ul>
+            <ul style="padding: 15px">
               {
               <li
                 v-for="(value, name) in input"
@@ -135,7 +172,9 @@
                 <b
                   class="text-success"
                   v-text="name" /> :
-                <span v-text="value" />
+                <span
+                  style="word-break: break-word"
+                  v-text="value" />
               </li>
               }
             </ul>
@@ -168,7 +207,10 @@ export default {
         suffix_icon: '',
         both_icon: '',
         clear_input: '',
-        show_password: ''
+        show_password: '',
+        limit_character: '',
+        textarea_autosize: '',
+        textarea_set_size: ''
       }
     }
   }

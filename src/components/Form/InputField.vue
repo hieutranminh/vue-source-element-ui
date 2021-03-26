@@ -30,6 +30,8 @@
         :maxlength="maxLength"
         :clearable="clearable"
         :show-password="showPassword"
+        :show-word-limit="showWordLimit"
+        :autosize="autosize"
         @input="handleType($event)" />
 
       <!--Message Error-->
@@ -120,6 +122,26 @@ export default {
     showPassword: {
       type: Boolean,
       default: false
+    },
+
+    showWordLimit: {
+      type: Boolean,
+      default: false
+    },
+
+    autosize: {
+      type: [Boolean, Object],
+      default: false
+    },
+
+    minRows: {
+      type: Number,
+      default: 2
+    },
+
+    maxRows: {
+      type: Number,
+      default: 4
     }
   },
 
