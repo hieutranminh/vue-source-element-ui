@@ -16,9 +16,11 @@
         class="required"
         v-text="'*'" />
     </label>
-    <!--Input-->
+
+    <!--Field-->
     <div
       :class="{'has-error': errors[0]}">
+      <!--Input-->
       <el-input
         :suffix-icon="suffixIcon"
         :prefix-icon="prefixIcon"

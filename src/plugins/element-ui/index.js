@@ -6,6 +6,7 @@ import {
   Button,
   Input,
   Select,
+  Option,
   Breadcrumb,
   BreadcrumbItem
 } from 'element-ui'
@@ -17,5 +18,6 @@ locale.use(enLocale)
 Vue.use(Button)
 Vue.use(Input)
 Vue.use(Select)
+Vue.use(Option)
 Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
