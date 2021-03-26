@@ -153,10 +153,38 @@
             rules="required"
             vid="vid"
             class="mb-3"
-            :autosize="{minRows: 3, maxRows: 5}"
+            :autosize="{minRows: 3, maxRows: 4}"
+            :max-length="150"
+            :show-word-limit="true"
             :placeholder="'Textarea set size'"
             :field="'Textarea set size'"
             :label="'Textarea set size'" />
+
+          <!--Mixed prepend-->
+          <InputField
+            v-model="input.mixed_prepend"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            mixed="prepend"
+            :mixed-text="'Prepend'"
+            :placeholder="'Mixed prepend'"
+            :field="'Mixed prepend'"
+            :label="'Mixed prepend'" />
+
+          <!--Mixed append-->
+          <InputField
+            v-model="input.mixed_append"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            mixed="append"
+            :mixed-text="'Append'"
+            :placeholder="'Mixed append'"
+            :field="'Mixed append'"
+            :label="'Mixed append'" />
         </div>
 
         <!--Object Data-->
@@ -210,7 +238,9 @@ export default {
         show_password: '',
         limit_character: '',
         textarea_autosize: '',
-        textarea_set_size: ''
+        textarea_set_size: '',
+        mixed_prepend: '',
+        mixed_append: ''
       }
     }
   }

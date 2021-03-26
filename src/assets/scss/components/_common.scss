@@ -8,16 +8,24 @@
 }
 
 .has-error {
+  // Input
   .el-input {
     input {
       border: 1px solid #cd201f;
     }
+
     &__prefix {
       color: #cd201f;
     }
 
     &__suffix {
       color: #cd201f;
+    }
+  }
+  // Textarea
+  .el-textarea {
+    textarea {
+      border: 1px solid #cd201f;
     }
   }
   .errors {

@@ -32,7 +32,13 @@
         :show-password="showPassword"
         :show-word-limit="showWordLimit"
         :autosize="autosize"
-        @input="handleType($event)" />
+        @input="handleType($event)">
+        <template
+          v-if="mixed.length"
+          :slot="mixed">
+          {{ mixedText }}
+        </template>
+      </el-input>
 
       <!--Message Error-->
       <span
@@ -134,14 +140,14 @@ export default {
       default: false
     },
 
-    minRows: {
-      type: Number,
-      default: 2
+    mixed: {
+      type: String,
+      default: ''
     },
 
-    maxRows: {
-      type: Number,
-      default: 4
+    mixedText: {
+      type: String,
+      default: ''
     }
   },
 
