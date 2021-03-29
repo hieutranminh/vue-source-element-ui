@@ -15,6 +15,85 @@
             :placeholder="'Select default'"
             :field="'Select default'"
             :label="'Select default'" />
+
+          <!--Select object-->
+          <SelectField
+            v-model="select.object"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :options="optionDefault"
+            :select-object="true"
+            :placeholder="'Select object'"
+            :field="'Select object'"
+            :label="'Select object'" />
+
+          <!--Select has disabled-->
+          <SelectField
+            v-model="select.disabled"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :options="optionDefaultDisabled"
+            :placeholder="'Select disabled'"
+            :field="'Select disabled'"
+            :label="'Select disabled'" />
+
+          <!--Select clearable single select-->
+          <SelectField
+            v-model="select.clearable"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :options="optionDefault"
+            :clearable="true"
+            :placeholder="'Select clearable'"
+            :field="'Select clearable'"
+            :label="'Select clearable'" />
+
+          <!--Select custom option default-->
+          <SelectField
+            v-model="select.custom_default"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            type-custom-option="default"
+            :custom-option="true"
+            :options="optionDefault"
+            :placeholder="'Custom option default'"
+            :field="'Custom option default'"
+            :label="'Custom option default'" />
+
+          <!--Select custom option space between-->
+          <SelectField
+            v-model="select.custom_space_between"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            type-custom-option="space-between"
+            :custom-option="true"
+            :options="optionDefault"
+            :placeholder="'Custom option space between'"
+            :field="'Custom option space between'"
+            :label="'Custom option space between'" />
+
+          <!--Option filtering-->
+          <SelectField
+            v-model="select.filtering"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :filterable="true"
+            :options="optionDefault"
+            :placeholder="'Option filtering'"
+            :field="'Option filtering'"
+            :label="'Option filtering'" />
         </div>
 
         <div class="col-md-4">
@@ -57,7 +136,13 @@ export default {
   data () {
     return {
       select: {
-        default: ''
+        default: '',
+        object: '',
+        disabled: '',
+        clearable: '',
+        custom_default: '',
+        custom_space_between: '',
+        filtering: ''
       }
     }
   },
@@ -68,6 +153,15 @@ export default {
         list: OPTIONS_DEFAULT,
         label: 'title',
         value: 'value'
+      }
+    },
+
+    optionDefaultDisabled () {
+      return {
+        list: OPTIONS_DEFAULT,
+        label: 'title',
+        value: 'value',
+        disabled: 'disabled'
       }
     }
   }

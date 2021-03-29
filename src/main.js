@@ -20,7 +20,6 @@ import './plugins/lazyload'
 import './plugins/validation'
 import './plugins/admin-lte3'
 import './plugins/element-ui'
-
 /* ============
  * Styling
  * ============

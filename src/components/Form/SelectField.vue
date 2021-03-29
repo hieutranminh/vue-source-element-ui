@@ -22,7 +22,9 @@
       :class="{'has-error': errors[0]}">
       <!--Select-->
       <el-select
-        :value="value"
+        :clearable="clearable"
+        :filterable="filterable"
+        :value="value === '' ? value : undefined"
         :size="size"
         :placeholder="placeholder"
         @change="handleChange">
@@ -30,7 +32,18 @@
           v-for="item in options.list"
           :key="item[options.value]"
           :label="item[options.label]"
-          :value="item[options.value]" />
+          :value="selectObject ? item : item[options.value]"
+          :disabled="item[options.disabled]">
+          <!--Custom template option-->
+          <div
+            v-if="customOption"
+            :class="typeCustomOption">
+            <span
+              v-text="item[options.label]" />
+            <span
+              v-text="item[options.value]" />
+          </div>
+        </el-option>
       </el-select>
 
       <!--Message Error-->
@@ -84,7 +97,7 @@ export default {
     },
 
     value: {
-      type: [String, Number],
+      type: [String, Number, Object],
       default: ''
     },
 
@@ -96,6 +109,31 @@ export default {
     size: {
       type: String,
       default: ''
+    },
+
+    clearable: {
+      type: Boolean,
+      default: false
+    },
+
+    filterable: {
+      type: Boolean,
+      default: false
+    },
+
+    customOption: {
+      type: Boolean,
+      default: false
+    },
+
+    typeCustomOption: {
+      type: String,
+      default: ''
+    },
+
+    selectObject: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -108,7 +146,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-select {
-  width: 100%;
-}
+  .el-select {
+    width: 100%;
+  }
+
+  .default {
+    span {
+      &:last-child {
+        font-size: 13px;
+        color: #8492a6;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .space-between {
+    display: flex;
+    justify-content: space-between;
+    span {
+      &:last-child {
+        font-size: 13px;
+        color: #8492a6;
+        margin-left: 10px;
+      }
+    }
+  }
 </style>
