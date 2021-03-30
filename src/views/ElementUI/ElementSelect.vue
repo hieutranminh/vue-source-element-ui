@@ -94,10 +94,84 @@
             :placeholder="'Option filtering'"
             :field="'Option filtering'"
             :label="'Option filtering'" />
+
+          <!--Multiple select-->
+          <SelectMultiple
+            v-model="select.multiple"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :multiple="true"
+            :filterable="true"
+            :options="optionDefault"
+            :placeholder="'Multiple'"
+            :field="'Multiple'"
+            :label="'Multiple'" />
+
+          <!--Multiple select collapse tags-->
+          <SelectMultiple
+            v-model="select.multiple_collapse_tags"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :multiple="true"
+            :filterable="true"
+            :collapse-tags="true"
+            :options="optionDefault"
+            :placeholder="'Multiple collapse tags'"
+            :field="'Multiple collapse tags'"
+            :label="'Multiple collapse tags'" />
         </div>
 
         <div class="col-md-4">
-          bbbbbb
+          <!--Multiple select limit-->
+          <SelectMultiple
+            v-model="select.multiple_limit"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :multiple="true"
+            :multiple-limit="2"
+            :filterable="true"
+            :options="optionDefault"
+            :placeholder="'Multiple limit'"
+            :field="'Multiple limit'"
+            :label="'Multiple limit'" />
+
+          <!--Multiple select object-->
+          <SelectMultiple
+            v-model="select.multiple_object"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :multiple="true"
+            :filterable="true"
+            :select-object="true"
+            :options="optionDefault"
+            :placeholder="'Multiple object'"
+            :field="'Multiple object'"
+            :label="'Multiple object'" />
+
+          <!--Multiple remote search-->
+          <SelectFetchData
+            v-model="select.remote_search"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :action-api="getDummy()"
+            :options="optionFetchDummy"
+            :multiple="true"
+            :filterable="true"
+            :remote="true"
+            :reserve-keyword="true"
+            :placeholder="'Multiple remote search'"
+            :field="'Multiple remote search'"
+            :label="'Multiple remote search'" />
         </div>
 
         <!--Object Data-->
@@ -127,22 +201,36 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import { OPTIONS_DEFAULT } from '@/enum/select-options'
 import SelectField from '@/components/Form/SelectField'
+import SelectMultiple from '@/components/Form/SelectMultiple'
+import SelectFetchData from '@/components/Form/SelectFetchData'
 
 export default {
   name: 'ElementSelect',
-  components: { SelectField },
+
+  components: {
+    SelectFetchData,
+    SelectMultiple,
+    SelectField
+  },
+
   data () {
     return {
       select: {
         default: '',
-        object: '',
+        object: {},
         disabled: '',
         clearable: '',
         custom_default: '',
         custom_space_between: '',
-        filtering: ''
+        filtering: '',
+        multiple: [],
+        multiple_collapse_tags: [],
+        multiple_limit: [],
+        multiple_object: [],
+        remote_search: []
       }
     }
   },
@@ -152,7 +240,8 @@ export default {
       return {
         list: OPTIONS_DEFAULT,
         label: 'title',
-        value: 'value'
+        value: 'value',
+        unique: 'id'
       }
     },
 
@@ -163,7 +252,19 @@ export default {
         value: 'value',
         disabled: 'disabled'
       }
+    },
+
+    optionFetchDummy () {
+      return {
+        label: 'username',
+        value: 'id',
+        unique: 'id'
+      }
     }
+  },
+
+  methods: {
+    ...mapActions('dummy', ['getDummy'])
   }
 }
 </script>

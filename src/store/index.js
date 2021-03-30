@@ -10,6 +10,7 @@
 import Vuex from 'vuex'
 
 // Modules
+import dummy from './modules/dummy'
 import account from './modules/account'
 import auth from './modules/auth'
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
    * Assign the modules to the store.
    */
   modules: {
+    dummy,
     account,
     auth
   },

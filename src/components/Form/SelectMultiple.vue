@@ -22,28 +22,20 @@
       :class="{'has-error': errors[0]}">
       <!--Select-->
       <el-select
-        :clearable="clearable"
+        :multiple="multiple"
+        :multiple-limit="multipleLimit"
         :filterable="filterable"
-        :value="Object.keys(value).length ? value : undefined"
+        :collapse-tags="collapseTags"
+        :value="value"
         :size="size"
         :placeholder="placeholder"
+        :value-key="selectObject ? options.unique : ''"
         @change="handleChange">
         <el-option
           v-for="item in options.list"
           :key="item[options.unique]"
           :label="item[options.label]"
-          :value="selectObject ? item : item[options.value]"
-          :disabled="item[options.disabled]">
-          <!--Custom template option-->
-          <div
-            v-if="customOption"
-            :class="typeCustomOption">
-            <span
-              v-text="item[options.label]" />
-            <span
-              v-text="item[options.value]" />
-          </div>
-        </el-option>
+          :value="selectObject ? item : item[options.value]" />
       </el-select>
 
       <!--Message Error-->
@@ -58,7 +50,7 @@
 
 <script>
 export default {
-  name: 'SelectField',
+  name: 'SelectMultiple',
 
   model: {
     prop: 'value',
@@ -97,13 +89,8 @@ export default {
     },
 
     value: {
-      type: [String, Number, Object],
-      default: ''
-    },
-
-    disabled: {
-      type: Boolean,
-      default: false
+      type: Array,
+      default: () => []
     },
 
     size: {
@@ -111,24 +98,24 @@ export default {
       default: ''
     },
 
-    clearable: {
-      type: Boolean,
-      default: false
-    },
-
     filterable: {
       type: Boolean,
       default: false
     },
 
-    customOption: {
+    multiple: {
       type: Boolean,
       default: false
     },
 
-    typeCustomOption: {
-      type: String,
-      default: ''
+    collapseTags: {
+      type: Boolean,
+      default: false
+    },
+
+    multipleLimit: {
+      type: Number,
+      default: 0
     },
 
     selectObject: {
@@ -148,27 +135,5 @@ export default {
 <style lang="scss" scoped>
   .el-select {
     width: 100%;
-  }
-
-  .default {
-    span {
-      &:last-child {
-        font-size: 13px;
-        color: #8492a6;
-        margin-left: 10px;
-      }
-    }
-  }
-
-  .space-between {
-    display: flex;
-    justify-content: space-between;
-    span {
-      &:last-child {
-        font-size: 13px;
-        color: #8492a6;
-        margin-left: 10px;
-      }
-    }
   }
 </style>

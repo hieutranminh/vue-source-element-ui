@@ -14,10 +14,17 @@
       <!--Pages-->
       <div class="content">
         <div class="container-fluid">
-          <router-view />
+          <div class="row">
+            <div class="col-12">
+              <router-view />
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!--FOOTER-->
+    <Footer />
   </div>
 </template>
 
@@ -25,11 +32,13 @@
 import Header from '@/layouts/Header'
 import Sidebar from '@/layouts/Sidebar'
 import Breadcrumb from '@/layouts/Breadcrumb'
+import Footer from '@/layouts/Footer'
 
 export default {
   name: 'Index',
 
   components: {
+    Footer,
     Sidebar,
     Header,
     Breadcrumb

@@ -22,28 +22,23 @@
       :class="{'has-error': errors[0]}">
       <!--Select-->
       <el-select
-        :clearable="clearable"
+        :multiple="multiple"
+        :multiple-limit="multipleLimit"
+        :remote="remote"
+        :remote-method="remoteMethod"
+        :reserve-keyword="reserveKeyword"
         :filterable="filterable"
-        :value="Object.keys(value).length ? value : undefined"
+        :value="value"
         :size="size"
         :placeholder="placeholder"
+        :loading="loading"
+        :value-key="options.unique"
         @change="handleChange">
         <el-option
-          v-for="item in options.list"
+          v-for="item in list"
           :key="item[options.unique]"
           :label="item[options.label]"
-          :value="selectObject ? item : item[options.value]"
-          :disabled="item[options.disabled]">
-          <!--Custom template option-->
-          <div
-            v-if="customOption"
-            :class="typeCustomOption">
-            <span
-              v-text="item[options.label]" />
-            <span
-              v-text="item[options.value]" />
-          </div>
-        </el-option>
+          :value="item" />
       </el-select>
 
       <!--Message Error-->
@@ -58,7 +53,7 @@
 
 <script>
 export default {
-  name: 'SelectField',
+  name: 'SelectFetchData',
 
   model: {
     prop: 'value',
@@ -91,29 +86,9 @@ export default {
       default: ''
     },
 
-    options: {
-      type: Object,
-      required: true
-    },
-
-    value: {
-      type: [String, Number, Object],
-      default: ''
-    },
-
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-
     size: {
       type: String,
       default: ''
-    },
-
-    clearable: {
-      type: Boolean,
-      default: false
     },
 
     filterable: {
@@ -121,24 +96,78 @@ export default {
       default: false
     },
 
-    customOption: {
+    options: {
+      type: Object,
+      required: true
+    },
+
+    multiple: {
       type: Boolean,
       default: false
     },
 
-    typeCustomOption: {
-      type: String,
-      default: ''
+    multipleLimit: {
+      type: Number,
+      default: 0
     },
 
     selectObject: {
       type: Boolean,
       default: false
+    },
+
+    remote: {
+      type: Boolean,
+      default: false
+    },
+
+    // when multiple and filter is true, whether to
+    // reserve current keyword after selecting an option
+    reserveKeyword: {
+      type: Boolean,
+      default: false
+    },
+
+    actionApi: {
+      type: [Promise],
+      default: () => {}
     }
   },
 
+  data () {
+    return {
+      value: [],
+      list: [],
+      loading: false
+    }
+  },
+
+  // SET data receive
+  // mounted () {
+  //   this.list = this.states.map(item => {
+  //     return { value: `value:${item}`, label: `label:${item}` }
+  //   })
+  // },
+
   methods: {
+    remoteMethod (query) {
+      if (query !== '') {
+        this.loading = true
+
+        this.actionApi.then((res) => {
+          this.loading = false
+
+          if (res.status === 200) {
+            this.list = res.data
+          }
+        })
+      } else {
+        this.list = []
+      }
+    },
+
     handleChange (value) {
+      console.log('value', value)
       this.$emit('change', value)
     }
   }
@@ -148,27 +177,5 @@ export default {
 <style lang="scss" scoped>
   .el-select {
     width: 100%;
-  }
-
-  .default {
-    span {
-      &:last-child {
-        font-size: 13px;
-        color: #8492a6;
-        margin-left: 10px;
-      }
-    }
-  }
-
-  .space-between {
-    display: flex;
-    justify-content: space-between;
-    span {
-      &:last-child {
-        font-size: 13px;
-        color: #8492a6;
-        margin-left: 10px;
-      }
-    }
   }
 </style>
