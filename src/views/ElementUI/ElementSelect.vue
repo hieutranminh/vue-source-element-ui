@@ -94,7 +94,9 @@
             :placeholder="'Option filtering'"
             :field="'Option filtering'"
             :label="'Option filtering'" />
+        </div>
 
+        <div class="col-md-4">
           <!--Multiple select-->
           <SelectMultiple
             v-model="select.multiple"
@@ -103,7 +105,6 @@
             size="medium"
             class="mb-3"
             :multiple="true"
-            :filterable="true"
             :options="optionDefault"
             :placeholder="'Multiple'"
             :field="'Multiple'"
@@ -117,15 +118,12 @@
             size="medium"
             class="mb-3"
             :multiple="true"
-            :filterable="true"
             :collapse-tags="true"
             :options="optionDefault"
             :placeholder="'Multiple collapse tags'"
             :field="'Multiple collapse tags'"
             :label="'Multiple collapse tags'" />
-        </div>
 
-        <div class="col-md-4">
           <!--Multiple select limit-->
           <SelectMultiple
             v-model="select.multiple_limit"
@@ -135,7 +133,6 @@
             class="mb-3"
             :multiple="true"
             :multiple-limit="2"
-            :filterable="true"
             :options="optionDefault"
             :placeholder="'Multiple limit'"
             :field="'Multiple limit'"
@@ -149,12 +146,26 @@
             size="medium"
             class="mb-3"
             :multiple="true"
-            :filterable="true"
             :select-object="true"
             :options="optionDefault"
             :placeholder="'Multiple object'"
             :field="'Multiple object'"
             :label="'Multiple object'" />
+
+          <!--Multiple allow create -->
+          <SelectMultiple
+            v-model="select.allow_create"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            :multiple="true"
+            :filterable="true"
+            :allow-create="true"
+            :options="optionDefault"
+            :placeholder="'Allow create'"
+            :field="'Allow create'"
+            :label="'Allow create'" />
 
           <!--Multiple remote search-->
           <SelectFetchData
@@ -163,7 +174,7 @@
             vid="vid"
             size="medium"
             class="mb-3"
-            :action-api="getDummy()"
+            name-actions="dummy/getDummy"
             :options="optionFetchDummy"
             :multiple="true"
             :filterable="true"
@@ -172,6 +183,24 @@
             :placeholder="'Multiple remote search'"
             :field="'Multiple remote search'"
             :label="'Multiple remote search'" />
+
+          <!--Multiple remote search object-->
+          <SelectFetchData
+            v-model="select.remote_object"
+            rules="required"
+            vid="vid"
+            size="medium"
+            class="mb-3"
+            name-actions="dummy/getDummy"
+            :options="optionFetchDummy"
+            :select-object="true"
+            :multiple="true"
+            :filterable="true"
+            :remote="true"
+            :reserve-keyword="true"
+            :placeholder="'Multiple remote object'"
+            :field="'Multiple remote object'"
+            :label="'Multiple remote object'" />
         </div>
 
         <!--Object Data-->
@@ -201,7 +230,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import { OPTIONS_DEFAULT } from '@/enum/select-options'
 import SelectField from '@/components/Form/SelectField'
 import SelectMultiple from '@/components/Form/SelectMultiple'
@@ -230,7 +258,9 @@ export default {
         multiple_collapse_tags: [],
         multiple_limit: [],
         multiple_object: [],
-        remote_search: []
+        allow_create: [],
+        remote_search: [],
+        remote_object: []
       }
     }
   },
@@ -261,10 +291,6 @@ export default {
         unique: 'id'
       }
     }
-  },
-
-  methods: {
-    ...mapActions('dummy', ['getDummy'])
   }
 }
 </script>

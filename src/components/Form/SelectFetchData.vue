@@ -32,13 +32,13 @@
         :size="size"
         :placeholder="placeholder"
         :loading="loading"
-        :value-key="options.unique"
+        :value-key="selectObject ? options.unique : ''"
         @change="handleChange">
         <el-option
           v-for="item in list"
           :key="item[options.unique]"
           :label="item[options.label]"
-          :value="item" />
+          :value="selectObject ? item : item[options.value]" />
       </el-select>
 
       <!--Message Error-->
@@ -101,6 +101,11 @@ export default {
       required: true
     },
 
+    value: {
+      type: Array,
+      default: () => []
+    },
+
     multiple: {
       type: Boolean,
       default: false
@@ -128,37 +133,40 @@ export default {
       default: false
     },
 
-    actionApi: {
-      type: [Promise],
-      default: () => {}
+    nameActions: {
+      type: String,
+      default: ''
     }
   },
 
   data () {
     return {
-      value: [],
       list: [],
       loading: false
     }
   },
 
   // SET data receive
-  // mounted () {
-  //   this.list = this.states.map(item => {
-  //     return { value: `value:${item}`, label: `label:${item}` }
-  //   })
-  // },
+  created () {
+    this.$store.dispatch(this.nameActions).then((res) => {
+      if (res.status === 200) {
+        this.list = res.data
+      }
+    })
+  },
 
   methods: {
     remoteMethod (query) {
       if (query !== '') {
         this.loading = true
 
-        this.actionApi.then((res) => {
+        this.$store.dispatch(this.nameActions).then((res) => {
           this.loading = false
 
           if (res.status === 200) {
-            this.list = res.data
+            this.list = res.data.filter(item => {
+              return item[this.options.label].toLowerCase().indexOf(query.toLowerCase()) > -1
+            })
           }
         })
       } else {
@@ -167,7 +175,6 @@ export default {
     },
 
     handleChange (value) {
-      console.log('value', value)
       this.$emit('change', value)
     }
   }

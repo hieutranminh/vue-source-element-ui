@@ -22,8 +22,10 @@
       :class="{'has-error': errors[0]}">
       <!--Select-->
       <el-select
+        default-first-option
         :multiple="multiple"
         :multiple-limit="multipleLimit"
+        :allow-create="allowCreate"
         :filterable="filterable"
         :collapse-tags="collapseTags"
         :value="value"
@@ -119,6 +121,11 @@ export default {
     },
 
     selectObject: {
+      type: Boolean,
+      default: false
+    },
+
+    allowCreate: {
       type: Boolean,
       default: false
     }
