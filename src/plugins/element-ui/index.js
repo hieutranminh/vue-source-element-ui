@@ -8,7 +8,10 @@ import {
   Select,
   Option,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Checkbox,
+  CheckboxButton,
+  CheckboxGroup
 } from 'element-ui'
 
 // configure language
@@ -21,3 +24,6 @@ Vue.use(Select)
 Vue.use(Option)
 Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
+Vue.use(Checkbox)
+Vue.use(CheckboxButton)
+Vue.use(CheckboxGroup)
