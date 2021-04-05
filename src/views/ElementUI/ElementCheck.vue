@@ -8,6 +8,8 @@
           <CheckboxField
             v-model="check.bind_boolean"
             class="mb-3"
+            rules="required"
+            field="Checkbox Validate"
             :label="'Checkbox bind boolean'"
             :option-name="'Bind boolean'" />
 

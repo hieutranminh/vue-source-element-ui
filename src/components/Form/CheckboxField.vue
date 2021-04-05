@@ -1,13 +1,25 @@
 <template>
-  <div class="checkbox">
+  <ValidationProvider
+    v-slot="{ errors }"
+    tag="div"
+    :name="field"
+    :vid="vid"
+    :rules="rules ? { required: { allowFalse: false } } : ''">
     <!--Label-->
     <label
       v-if="label"
-      class="label"
-      v-text="label" />
+      class="label">
+      {{ label }}
+
+      <span
+        v-if="rules.includes('required')"
+        class="required"
+        v-text="'*'" />
+    </label>
 
     <!--Checkbox single-->
-    <div>
+    <div
+      :class="{'has-error': errors[0]}">
       <el-checkbox
         class="mb-0"
         :value="value"
@@ -19,8 +31,15 @@
         @change="onChange">
         {{ optionName }}
       </el-checkbox>
+
+      <!--Message Error-->
+      <span
+        v-if="errors[0]"
+        class="errors d-block">
+        {{ errors[0] }}
+      </span>
     </div>
-  </div>
+  </ValidationProvider>
 </template>
 
 <script>
@@ -34,6 +53,21 @@ export default {
 
   props: {
     label: {
+      type: String,
+      default: ''
+    },
+
+    field: {
+      type: String,
+      default: ''
+    },
+
+    rules: {
+      type: [String, Object],
+      default: ''
+    },
+
+    vid: {
       type: String,
       default: ''
     },
