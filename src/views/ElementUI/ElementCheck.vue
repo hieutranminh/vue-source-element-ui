@@ -69,7 +69,7 @@
 
           <!--Checkbox group max value-->
           <CheckboxGroup
-            v-model="check.group_max"
+            v-model="check.group_limit"
             rules="required"
             vid="vid"
             class="mb-3"
@@ -77,11 +77,86 @@
             :list="LIST_CHECKBOX"
             :field="'Checkbox max value'"
             :label="'Checkbox max value'" />
+
+          <!--Checkbox button group-->
+          <CheckboxButtonGroup
+            v-model="check.button_group"
+            rules="required"
+            vid="vid"
+            class="mb-3"
+            size="medium"
+            :list="LIST_CHECKBOX"
+            :field="'Checkbox button'"
+            :label="'Checkbox button'" />
+
+          <!--Checkbox button group limit-->
+          <CheckboxButtonGroup
+            v-model="check.button_group_limit"
+            rules="required"
+            vid="vid"
+            class="mb-3"
+            size="medium"
+            :max="2"
+            :list="LIST_CHECKBOX"
+            :field="'Checkbox button limit'"
+            :label="'Checkbox button limit'" />
+
+          <!--Checkbox button group disable-->
+          <CheckboxButtonGroup
+            v-model="check.button_group"
+            vid="vid"
+            class="mb-3"
+            size="medium"
+            :disabled="true"
+            :list="LIST_CHECKBOX"
+            :field="'Checkbox button disable'"
+            :label="'Checkbox button disable'" />
         </div>
 
         <!--Radio Button-->
         <div class="col-md-4">
-          Radio
+          <!--Radio group-->
+          <RadioGroup
+            v-model="radio.default"
+            class="mb-3"
+            :options="optionsRadio"
+            :label="'Radio group'" />
+
+          <!--Radio group disable-->
+          <RadioGroup
+            v-model="radio.default"
+            class="mb-3"
+            :disabled="true"
+            :options="optionsRadio"
+            :label="'Radio group disable'" />
+
+          <!--Radio group style border-->
+          <RadioGroup
+            v-model="radio.border"
+            class="mb-3"
+            size="medium"
+            :border="true"
+            :options="optionsRadio"
+            :label="'Radio style border'" />
+
+          <!--Radio button group-->
+          <RadioButtonGroup
+            v-model="radio.button_group"
+            class="mb-3"
+            size="medium"
+            :options="optionsRadio"
+            :label="'Radio button group'" />
+
+          <!--Radio button group disable-->
+          <RadioButtonGroup
+            v-model="radio.button_group"
+            class="mb-3"
+            size="medium"
+            :disabled="true"
+            :options="optionsRadio"
+            :label="'Radio button disable '" />
+
+          <hr>
         </div>
 
         <!--Object Data-->
@@ -131,11 +206,17 @@
 
 import CheckboxField from '@/components/Form/CheckboxField'
 import CheckboxGroup from '@/components/Form/CheckboxGroup'
-import { LIST_CHECKBOX } from '@/enum/checkbox-options'
+import CheckboxButtonGroup from '@/components/Form/CheckboxButtonGroup'
+import RadioGroup from '@/components/Form/RadioGroup'
+import { LIST_CHECKBOX, LIST_RADIO } from '@/enum/options'
+import RadioButtonGroup from '@/components/Form/RadioButtonGroup'
 export default {
   name: 'ElementCheck',
 
   components: {
+    RadioButtonGroup,
+    RadioGroup,
+    CheckboxButtonGroup,
     CheckboxGroup,
     CheckboxField
   },
@@ -143,6 +224,7 @@ export default {
   data () {
     return {
       LIST_CHECKBOX,
+      LIST_RADIO,
       check: {
         bind_boolean: false,
         bind_number: 0,
@@ -150,14 +232,25 @@ export default {
         disabled: false,
         border: false,
         group: [],
-        group_max: [],
-        clearable: ''
+        group_limit: [],
+        button_group: ['Option A'],
+        button_group_limit: ['Option B']
       },
       radio: {
-        single: '',
-        object: {},
-        disabled: '',
-        clearable: ''
+        default: 1,
+        border: 1,
+        button_group: 'Radio A'
+      }
+    }
+  },
+
+  computed: {
+    optionsRadio () {
+      return {
+        list: LIST_RADIO,
+        label: 'name',
+        value: 'id',
+        unique: 'id'
       }
     }
   }

@@ -23,8 +23,10 @@
       <el-checkbox-group
         :value="value"
         :max="max"
+        :size="size"
+        :disabled="disabled"
         @input="onInput">
-        <el-checkbox
+        <el-checkbox-button
           v-for="(item, index) in list"
           :key="index"
           :label="item" />
@@ -42,7 +44,7 @@
 
 <script>
 export default {
-  name: 'CheckboxGroup',
+  name: 'CheckboxButtonGroup',
 
   model: {
     prop: 'value',

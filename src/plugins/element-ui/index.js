@@ -11,7 +11,10 @@ import {
   BreadcrumbItem,
   Checkbox,
   CheckboxButton,
-  CheckboxGroup
+  CheckboxGroup,
+  Radio,
+  RadioButton,
+  RadioGroup
 } from 'element-ui'
 
 // configure language
@@ -27,3 +30,6 @@ Vue.use(BreadcrumbItem)
 Vue.use(Checkbox)
 Vue.use(CheckboxButton)
 Vue.use(CheckboxGroup)
+Vue.use(Radio)
+Vue.use(RadioButton)
+Vue.use(RadioGroup)
