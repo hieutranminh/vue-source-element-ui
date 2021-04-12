@@ -157,6 +157,51 @@
             :label="'Radio button disable '" />
 
           <hr>
+
+          <!--Switch default-->
+          <SwitchField
+            v-model="switch_button.bind_boolean"
+            class="mb-3"
+            :label="'Switch default '" />
+
+          <!--Switch bind number-->
+          <SwitchField
+            v-model="switch_button.bind_number"
+            class="mb-3"
+            :active-value="1"
+            :inactive-value="0"
+            :label="'Switch bind number '" />
+
+          <!--Switch bind string-->
+          <SwitchField
+            v-model="switch_button.bind_string"
+            class="mb-3"
+            :active-value="'Yes'"
+            :inactive-value="'No'"
+            :label="'Switch bind string '" />
+
+          <!--Switch style color-->
+          <SwitchField
+            v-model="switch_button.style_color"
+            class="mb-3"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+            :label="'Switch style color '" />
+
+          <!--Switch have text-->
+          <SwitchField
+            v-model="switch_button.have_text"
+            class="mb-3"
+            :active-text="'Active'"
+            :inactive-text="'Inactive'"
+            :label="'Switch have text'" />
+
+          <!--Switch disable-->
+          <SwitchField
+            v-model="switch_button.disable"
+            class="mb-3"
+            :disabled="true"
+            :label="'Switch disable '" />
         </div>
 
         <!--Object Data-->
@@ -178,12 +223,29 @@
               </li>
               }
               <p class="mb-0">
-                ------------
+                ------------ Radio
               </p>
               {
               <li
                 v-for="(value, name) in radio"
                 :key="name+'radio'"
+                class="ml-3"
+                style="listStyle: none">
+                <b
+                  class="text-success"
+                  v-text="name" /> :
+                <span
+                  style="word-break: break-word"
+                  v-text="value" />
+              </li>
+              }
+              <p class="mb-0">
+                ------------ Switch
+              </p>
+              {
+              <li
+                v-for="(value, name) in switch_button"
+                :key="name+'switch_button'"
                 class="ml-3"
                 style="listStyle: none">
                 <b
@@ -210,10 +272,12 @@ import CheckboxButtonGroup from '@/components/Form/CheckboxButtonGroup'
 import RadioGroup from '@/components/Form/RadioGroup'
 import { LIST_CHECKBOX, LIST_RADIO } from '@/enum/options'
 import RadioButtonGroup from '@/components/Form/RadioButtonGroup'
+import SwitchField from '@/components/Form/SwitchField'
 export default {
   name: 'ElementCheck',
 
   components: {
+    SwitchField,
     RadioButtonGroup,
     RadioGroup,
     CheckboxButtonGroup,
@@ -240,6 +304,14 @@ export default {
         default: 1,
         border: 1,
         button_group: 'Radio A'
+      },
+      switch_button: {
+        bind_boolean: false,
+        bind_number: 0,
+        bind_string: '',
+        style_color: false,
+        have_text: false,
+        disable: false
       }
     }
   },

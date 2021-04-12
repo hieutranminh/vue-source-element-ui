@@ -14,7 +14,8 @@ import {
   CheckboxGroup,
   Radio,
   RadioButton,
-  RadioGroup
+  RadioGroup,
+  Switch
 } from 'element-ui'
 
 // configure language
@@ -33,3 +34,4 @@ Vue.use(CheckboxGroup)
 Vue.use(Radio)
 Vue.use(RadioButton)
 Vue.use(RadioGroup)
+Vue.use(Switch)
