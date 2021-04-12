@@ -38,6 +38,18 @@ export default [
     beforeEnter: ResolveGuard([AuthGuard])
   },
   {
+    path: '/el_ui/rate',
+    name: 'el_ui.rate',
+    component: () => import('@/views/ElementUI/ElementRateColor'),
+    meta: {
+      title: 'el_rate',
+      breadcrumbs: [
+        { title: 'el_rate', name: 'el_ui.rate' }
+      ]
+    },
+    beforeEnter: ResolveGuard([AuthGuard])
+  },
+  {
     path: '/el_ui/date_picker',
     name: 'el_ui.date_picker',
     component: () => import('@/views/ElementUI/ElementDatePicker'),

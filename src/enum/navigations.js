@@ -30,6 +30,12 @@ export const NAVIGATIONS = [
         routeName: 'el_ui.check'
       },
       {
+        id: 'el_ui_rate',
+        icon: 'far fa-circle',
+        title: 'el_ui_rate',
+        routeName: 'el_ui.rate'
+      },
+      {
         id: 'el_ui_date_picker',
         icon: 'far fa-circle',
         title: 'el_ui_date_picker',

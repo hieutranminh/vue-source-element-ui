@@ -4,5 +4,6 @@
   "el_input": "ElementUI Input",
   "el_select": "ElementUI Select",
   "el_check": "ElementUI Check & Switch",
+  "el_rate": "ElementUI Rate & Color picker",
   "el_date_picker": "ElementUI Date Picker"
 }

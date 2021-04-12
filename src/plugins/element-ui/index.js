@@ -15,7 +15,9 @@ import {
   Radio,
   RadioButton,
   RadioGroup,
-  Switch
+  Switch,
+  Rate,
+  ColorPicker
 } from 'element-ui'
 
 // configure language
@@ -35,3 +37,5 @@ Vue.use(Radio)
 Vue.use(RadioButton)
 Vue.use(RadioGroup)
 Vue.use(Switch)
+Vue.use(Rate)
+Vue.use(ColorPicker)
