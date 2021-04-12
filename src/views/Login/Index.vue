@@ -16,20 +16,20 @@
           ref="observer"
           tag="form"
           @submit.prevent="validateBeforeSubmit">
-          <!--Username-->
+          <!--Email-->
           <InputField
-            v-model="form.login_id"
+            v-model="form.email"
             rules="required"
-            vid="username"
+            vid="email"
             size="medium"
             suffix-icon="el-icon-user"
             class="mb-3"
-            :field="$t('auth.username')"
-            :label="$t('auth.username')" />
+            :field="$t('auth.email')"
+            :label="$t('auth.email')" />
 
           <!--Password-->
           <InputField
-            v-model="form.login_password"
+            v-model="form.password"
             rules="required"
             vid="password"
             size="medium"
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import firebase from 'firebase/app'
 import InputField from '@/components/Form/InputField'
 
 export default {
@@ -67,16 +67,13 @@ export default {
     return {
       isSubmit: false,
       form: {
-        company_code: '123123123',
-        login_id: '123123123',
-        login_password: '123123123'
+        email: 'admin@gmail.com',
+        password: '123123'
       }
     }
   },
 
   methods: {
-    ...mapActions('auth', ['login']),
-
     async validateBeforeSubmit () {
       const isValid = await this.$refs.observer.validate()
 
@@ -88,14 +85,20 @@ export default {
     },
 
     handleSubmit () {
-      this.login(this.form).then((res) => {
-        this.isSubmit = false
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.form.email, this.form.password)
+        .then(res => {
+          console.log(res)
+          this.isSubmit = false
 
-        if (res && res.token) {
-          this.$router.push({ name: 'home.index' })
-        }
-        // check submit error
-      })
+          this.$router.push({ name: 'home.index' }).catch(() => {})
+        })
+        .catch(err => {
+          this.isSubmit = false
+
+          alert(err.message)
+        })
     }
   }
 }

@@ -10,6 +10,7 @@ import * as types from './mutation-types'
 
 export default {
   login ({ commit }, params) {
+    /* Auth with Proxy
     return new AuthProxy()
       .login(params)
       .then((res) => {
@@ -20,6 +21,11 @@ export default {
       .catch(() => {
         console.log('Request failed...')
       })
+     */
+  },
+
+  fetchUserProfile ({ commit }, user) {
+
   },
 
   logout ({ commit }) {

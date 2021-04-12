@@ -1,22 +1,11 @@
-import store from '@/store'
+import firebase from 'firebase/app'
 
-// eslint-disable-next-line import/prefer-default-export
 export const AuthGuard = async (to, from, next) => {
-  if (!store.state.auth.authenticated) {
-    next({ name: 'login.index' })
-
-    return
-  }
-
-  if (!store.state.account.profile) {
-    const query = {
-      include: 'company'
-    }
-
-    store.dispatch('account/getProfile', query).then(() => {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
       next()
-    })
-  } else {
-    next()
-  }
+    } else {
+      next({ name: 'login.index' })
+    }
+  })
 }

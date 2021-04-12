@@ -63,26 +63,22 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import firebase from 'firebase/app'
 
 export default {
   name: 'Header',
 
   methods: {
-    ...mapActions('auth', ['logout']),
-
     goProfile () {
       console.log('go profile')
     },
 
-    async handleLogout () {
-      try {
-        await this.logout()
-      } catch (e) {
-        return e
-      }
-
-      await this.$router.push({ name: 'login.index' })
+    handleLogout () {
+      firebase.auth().signOut().then(res => {
+        this.$router.replace({ name: 'login.index' }).catch(() => {})
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 }

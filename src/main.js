@@ -8,6 +8,12 @@ import Vue from 'vue'
 import App from './App'
 
 /* ============
+ * Firebase
+ * ============
+ */
+import './firebase/firebase'
+
+/* ============
  * Plugins
  * ============
  */
