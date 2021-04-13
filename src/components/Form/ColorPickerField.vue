@@ -1,5 +1,5 @@
 <template>
-  <div class="rate">
+  <div class="color-picker">
     <!--Label-->
     <label
       v-if="label"
@@ -8,25 +8,21 @@
 
     <!--Field-->
     <div>
-      <el-rate
-        :allow-half="allowHalf"
-        :void-icon-class="voidIconClass"
-        :icon-classes="iconClasses"
-        :show-text="showText"
+      <el-color-picker
         :value="value"
         :disabled="disabled"
-        :colors="colors"
-        :texts="texts"
-        :disabled-void-color="disabledVoidColor"
-        :max="max"
-        @change="onChange" />
+        :show-alpha="showAlpha"
+        :size="size"
+        :predefine="predefineColors"
+        :color-format="colorFormat"
+        @[eventName]="onChange" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'RateField',
+  name: 'ColorPickerField',
 
   model: {
     prop: 'value',
@@ -40,7 +36,7 @@ export default {
     },
 
     value: {
-      type: Number,
+      type: String,
       default: null
     },
 
@@ -49,44 +45,29 @@ export default {
       default: false
     },
 
-    disabledVoidColor: {
+    size: {
       type: String,
       default: ''
     },
 
-    colors: {
-      type: Array,
-      default: undefined
-    },
-
-    showText: {
+    showAlpha: {
       type: Boolean,
       default: false
     },
 
-    texts: {
+    predefineColors: {
       type: Array,
       default: undefined
     },
 
-    iconClasses: {
-      type: Array,
-      default: undefined
-    },
-
-    voidIconClass: {
+    colorFormat: {
       type: String,
       default: undefined
     },
 
-    allowHalf: {
-      type: Boolean,
-      default: false
-    },
-
-    max: {
-      type: Number,
-      default: 5
+    eventName: {
+      type: String,
+      default: 'change'
     }
   },
 

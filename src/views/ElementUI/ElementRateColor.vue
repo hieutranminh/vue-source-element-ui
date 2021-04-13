@@ -68,7 +68,42 @@
 
         <!--Color picker-->
         <div class="col-md-4">
-          Color
+          <!--Color default-->
+          <ColorPickerField
+            v-model="color_picker.default"
+            class="mb-3"
+            :label="'Color picker default'" />
+
+          <!--Color alpha-->
+          <ColorPickerField
+            v-model="color_picker.alpha"
+            class="mb-3"
+            :show-alpha="true"
+            :label="'Color picker alpha'" />
+
+          <!--Color size-->
+          <ColorPickerField
+            v-model="color_picker.size"
+            class="mb-3"
+            size="medium"
+            :label="'Size (medium, small, mini)'" />
+
+          <!--Color predefined-->
+          <ColorPickerField
+            v-model="color_picker.predefined"
+            class="mb-3"
+            size="medium"
+            :predefine-colors="predefineColors"
+            :show-alpha="true"
+            :label="'Color picker predefined'" />
+
+          <!--Color event active change-->
+          <ColorPickerField
+            v-model="color_picker.eventName"
+            class="mb-3"
+            size="medium"
+            event-name="active-change"
+            :label="'Event active change'" />
         </div>
 
         <!--Object Data-->
@@ -117,10 +152,12 @@
 <script>
 
 import RateField from '@/components/Form/RateField'
+import ColorPickerField from '@/components/Form/ColorPickerField'
 export default {
   name: 'ElementRateColor',
 
   components: {
+    ColorPickerField,
     RateField
   },
 
@@ -136,8 +173,21 @@ export default {
         limit: null
       },
       color_picker: {
-        default: ''
-      }
+        default: '#000000',
+        alpha: 'rgba(0, 0, 0, 0.5)',
+        size: '#000000',
+        predefined: 'rgba(255, 69, 0, 0.68)',
+        eventName: 'rgb(255, 165, 0)'
+      },
+      predefineColors: [
+        '#ff4500',
+        '#ff8c00',
+        '#ffd700',
+        '#90ee90',
+        '#00ced1',
+        '#1e90ff',
+        '#c71585'
+      ]
     }
   }
 }
