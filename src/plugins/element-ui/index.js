@@ -17,7 +17,10 @@ import {
   RadioGroup,
   Switch,
   Rate,
-  ColorPicker
+  ColorPicker,
+  TimeSelect,
+  TimePicker,
+  DatePicker
 } from 'element-ui'
 
 // configure language
@@ -39,3 +42,6 @@ Vue.use(RadioGroup)
 Vue.use(Switch)
 Vue.use(Rate)
 Vue.use(ColorPicker)
+Vue.use(TimeSelect)
+Vue.use(TimePicker)
+Vue.use(DatePicker)
