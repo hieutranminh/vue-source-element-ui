@@ -70,6 +70,11 @@ export default {
       default: ''
     },
 
+    timeValue: {
+      type: [String, Date],
+      default: ''
+    },
+
     size: {
       type: String,
       default: ''
@@ -102,9 +107,14 @@ export default {
     }
   },
 
+  created () {
+    if (this.timeValue) {
+      this.time = this.timeValue
+    }
+  },
+
   methods: {
     onChange (value) {
-      console.log(value)
       this.$emit('change', value)
     }
   }

@@ -69,6 +69,11 @@ export default {
       default: ''
     },
 
+    timeValue: {
+      type: String,
+      default: ''
+    },
+
     disabled: {
       type: Boolean,
       default: false
@@ -98,6 +103,12 @@ export default {
   data () {
     return {
       time: ''
+    }
+  },
+
+  created () {
+    if (this.timeValue) {
+      this.time = this.timeValue
     }
   },
 
