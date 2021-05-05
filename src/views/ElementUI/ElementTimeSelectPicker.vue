@@ -3,9 +3,8 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-8">
-          <!--Time & Date picker-->
+          <!--Time Select & Picker-->
           <div class="row">
-            <!--Time-->
             <div class="col-md-6">
               <!--Time select default-->
               <TimeSelect
@@ -63,7 +62,9 @@
                 :field="'Time picker'"
                 :time-value="dataTime.picker_default"
                 @change="dataTime.picker_default = $event" />
+            </div>
 
+            <div class="col-md-6">
               <!--Time picker format-->
               <!--https://element.eleme.io/#/en-US/component/date-picker#date-formats-->
               <TimePicker
@@ -84,15 +85,15 @@
                 rules="required"
                 size="medium"
                 placeholder="Option range string"
-                vid="picker_range_string"
+                vid="options_range_string"
                 value-format="HH:mm:ss"
                 :picker-options="{
                   selectableRange: '15:30:00 - 20:30:00'
                 }"
                 :label="'Option range string'"
                 :field="'Option range string'"
-                :time-value="dataTime.picker_range_string"
-                @change="dataTime.picker_range_string = $event" />
+                :time-value="dataTime.options_range_string"
+                @change="dataTime.options_range_string = $event" />
 
               <!--Time picker options range array-->
               <TimePicker
@@ -100,15 +101,15 @@
                 rules="required"
                 size="medium"
                 placeholder="Option range array"
-                vid="picker_range_array"
+                vid="option_range_array"
                 value-format="HH:mm:ss"
                 :picker-options="{
                   selectableRange: ['08:30:00 - 10:00:00', '14:30:00 - 18:30:00']
                 }"
                 :label="'Option range array'"
                 :field="'Option range array'"
-                :time-value="dataTime.picker_range_array"
-                @change="dataTime.picker_range_array = $event" />
+                :time-value="dataTime.option_range_array"
+                @change="dataTime.option_range_array = $event" />
 
               <!--Time picker arrow control-->
               <TimePicker
@@ -124,21 +125,15 @@
                 :time-value="dataTime.arrow_control"
                 @change="dataTime.arrow_control = $event" />
             </div>
-
-            <!--Date-->
-            <div class="col-md-6">
-              <!--Date picker default-->
-              Date picker
-            </div>
           </div>
 
-          <!--Time & Date range-->
+          <!--Time Select & Picker range-->
           <div class="row">
             <div class="col-md-12">
               <hr>
               <!--Time Range-->
               <h5 class="text-info">
-                Time Picker Range
+                Time Select & Picker Range
               </h5>
 
               <!--Time select range default-->
@@ -160,11 +155,41 @@
                 :end-time-value="dataTime.select_range.to"
                 @startTime="dataTime.select_range.from = $event"
                 @endTime="dataTime.select_range.to = $event" />
-              <hr>
-              <!--Date Range-->
-              <h5 class="text-info">
-                Date Picker Range
-              </h5>
+
+              <!--Time picker range-->
+              <TimePickerRange
+                class="mb-3"
+                rules="required"
+                size="medium"
+                vid="picker_range"
+                :label="'Time picker range'"
+                :field="'Time picker range'"
+                @change="dataTime.picker_range = $event" />
+
+              <!--Time picker range format-->
+              <TimePickerRange
+                class="mb-3"
+                rules="required"
+                size="medium"
+                vid="picker_range_format"
+                range-separator="~"
+                start-placeholder="From"
+                end-placeholder="To"
+                value-format="HH:mm:ss"
+                :label="'Picker range format'"
+                :field="'Picker range format'"
+                @change="dataTime.picker_range_format = $event" />
+
+              <!--Time picker range arrow control-->
+              <TimePickerRange
+                class="mb-3"
+                rules="required"
+                size="medium"
+                vid="range_arrow_control"
+                :arrow-control="true"
+                :label="'Range arrow control'"
+                :field="'Range arrow control'"
+                @change="dataTime.range_arrow_control = $event" />
             </div>
           </div>
         </div>
@@ -187,23 +212,6 @@
                   v-text="value" />
               </li>
               }
-              <p class="mb-0">
-                ------------ Date picker
-              </p>
-              {
-              <li
-                v-for="(value, name) in dataDate"
-                :key="name+'date'"
-                class="ml-3"
-                style="listStyle: none">
-                <b
-                  class="text-success"
-                  v-text="name" /> :
-                <span
-                  style="word-break: break-word"
-                  v-text="value" />
-              </li>
-              }
             </ul>
           </div>
         </div>
@@ -216,11 +224,13 @@
 import TimeSelect from '@/components/Form/TimeSelect'
 import TimePicker from '@/components/Form/TimePicker'
 import TimeSelectRange from '@/components/Form/TimeSelectRange'
+import TimePickerRange from '@/components/Form/TimePickerRange'
 
 export default {
-  name: 'ElementDatePicker',
+  name: 'ElementTimeSelectPicker',
 
   components: {
+    TimePickerRange,
     TimeSelectRange,
     TimePicker,
     TimeSelect
@@ -234,13 +244,16 @@ export default {
         prefix_icon: '',
         picker_default: '10AM',
         picker_format: '09:30:00',
-        picker_range_string: '',
-        picker_range_array: '',
+        options_range_string: '',
+        option_range_array: '',
         arrow_control: '',
         select_range: {
           from: '',
           to: ''
-        }
+        },
+        picker_range: [],
+        picker_range_format: [],
+        range_arrow_control: []
       },
       dataDate: {
         default: ''

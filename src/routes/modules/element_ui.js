@@ -50,13 +50,13 @@ export default [
     beforeEnter: ResolveGuard([AuthGuard])
   },
   {
-    path: '/el_ui/date_picker',
-    name: 'el_ui.date_picker',
-    component: () => import('@/views/ElementUI/ElementDatePicker'),
+    path: '/el_ui/time_select_picker',
+    name: 'el_ui.time_select_picker',
+    component: () => import('@/views/ElementUI/ElementTimeSelectPicker'),
     meta: {
-      title: 'el_date_picker',
+      title: 'el_time_select_picker',
       breadcrumbs: [
-        { title: 'el_date_picker', name: 'el_ui.date_picker' }
+        { title: 'el_time_select_picker', name: 'el_ui.time_select_picker' }
       ]
     },
     beforeEnter: ResolveGuard([AuthGuard])

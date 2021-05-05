@@ -36,10 +36,10 @@ export const NAVIGATIONS = [
         routeName: 'el_ui.rate'
       },
       {
-        id: 'el_ui_date_picker',
+        id: 'el_ui_time_select_picker',
         icon: 'far fa-circle',
-        title: 'el_ui_date_picker',
-        routeName: 'el_ui.date_picker'
+        title: 'el_ui_time_select_picker',
+        routeName: 'el_ui.time_select_picker'
       }
     ]
   },
