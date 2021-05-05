@@ -40,6 +40,24 @@ export const NAVIGATIONS = [
         icon: 'far fa-circle',
         title: 'el_ui_time_select_picker',
         routeName: 'el_ui.time_select_picker'
+      },
+      {
+        id: 'el_ui_date_picker',
+        icon: 'far fa-circle',
+        title: 'el_ui_date_picker',
+        routeName: 'el_ui.date_picker'
+      },
+      {
+        id: 'el_ui_date_time_picker',
+        icon: 'far fa-circle',
+        title: 'el_ui_date_time_picker',
+        routeName: 'el_ui.date_time_picker'
+      },
+      {
+        id: 'el_ui_upload',
+        icon: 'far fa-circle',
+        title: 'el_ui_upload',
+        routeName: 'el_ui.upload'
       }
     ]
   },

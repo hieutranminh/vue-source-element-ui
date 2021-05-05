@@ -254,9 +254,6 @@ export default {
         picker_range: [],
         picker_range_format: [],
         range_arrow_control: []
-      },
-      dataDate: {
-        default: ''
       }
     }
   }

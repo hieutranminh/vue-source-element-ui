@@ -60,5 +60,41 @@ export default [
       ]
     },
     beforeEnter: ResolveGuard([AuthGuard])
+  },
+  {
+    path: '/el_ui/date_picker',
+    name: 'el_ui.date_picker',
+    component: () => import('@/views/ElementUI/ElementDatePicker'),
+    meta: {
+      title: 'el_date_picker',
+      breadcrumbs: [
+        { title: 'el_date_picker', name: 'el_ui.date_picker' }
+      ]
+    },
+    beforeEnter: ResolveGuard([AuthGuard])
+  },
+  {
+    path: '/el_ui/date_time_picker',
+    name: 'el_ui.date_time_picker',
+    component: () => import('@/views/ElementUI/ElementDateTimePicker'),
+    meta: {
+      title: 'el_date_time_picker',
+      breadcrumbs: [
+        { title: 'el_date_time_picker', name: 'el_ui.date_time_picker' }
+      ]
+    },
+    beforeEnter: ResolveGuard([AuthGuard])
+  },
+  {
+    path: '/el_ui/upload',
+    name: 'el_ui.upload',
+    component: () => import('@/views/ElementUI/ElementUpload'),
+    meta: {
+      title: 'el_upload',
+      breadcrumbs: [
+        { title: 'el_upload', name: 'el_ui.upload' }
+      ]
+    },
+    beforeEnter: ResolveGuard([AuthGuard])
   }
 ]

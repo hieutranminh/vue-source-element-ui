@@ -5,5 +5,8 @@
   "el_select": "ElementUI Select",
   "el_check": "ElementUI Check & Switch",
   "el_rate": "ElementUI Rate & Color & Slide",
-  "el_time_select_picker": "ElementUI Time Select & Picker"
+  "el_time_select_picker": "ElementUI Time Select & Picker",
+  "el_date_picker": "Date Picker",
+  "el_date_time_picker": "Date Time Picker",
+  "el_upload": "Upload"
 }
