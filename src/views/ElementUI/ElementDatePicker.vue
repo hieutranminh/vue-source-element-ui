@@ -6,8 +6,30 @@
           <!--Date picker-->
           <div class="row">
             <div class="col-md-6">
-              <!--default-->
-              Date Picker
+              <!--Date-->
+              <DatePicker
+                class="mb-3"
+                rules="required"
+                size="medium"
+                type="date"
+                placeholder="Date picker"
+                vid="date_picker"
+                :label="'Date picker'"
+                :field="'Date picker'"
+                @change="datePicker.date = $event" />
+
+              <!--Date format-->
+              <DatePicker
+                class="mb-3"
+                rules="required"
+                size="medium"
+                type="date"
+                placeholder="Date picker format"
+                vid="date_picker_format"
+                value-format="DD-MM-yyyy"
+                :label="'Date picker format'"
+                :field="'Date picker format'"
+                @change="datePicker.date_format = $event" />
             </div>
 
             <div class="col-md-6">
@@ -56,16 +78,24 @@
 
 <script>
 
+import DatePicker from '@/components/Form/DatePicker'
 export default {
   name: 'ElementDatePicker',
 
   components: {
+    DatePicker
   },
 
   data () {
     return {
       datePicker: {
-        default: ''
+        date: '',
+        date_format: '',
+        date_options: '',
+        week: '',
+        month: '',
+        year: '',
+        dates: []
       }
     }
   }
