@@ -6,13 +6,49 @@
           <!--Date picker-->
           <div class="row">
             <div class="col-md-6">
-              <!--default-->
-              Date Time Picker
+              <!--Default-->
+              <DatePicker
+                class="mb-3"
+                rules="required"
+                size="medium"
+                type="datetime"
+                placeholder="Date time picker"
+                vid="date_time_picker"
+                :label="'Date time picker'"
+                :field="'Date time picker'"
+                @change="dateTimePicker.default = $event" />
+
+              <!--Default time-->
+              <DatePicker
+                class="mb-3"
+                rules="required"
+                size="medium"
+                type="datetime"
+                placeholder="Date default time"
+                vid="date_default_time"
+                default-time="12:00:00"
+                :label="'Date default time'"
+                :field="'Date default time'"
+                @change="dateTimePicker.default_time = $event" />
+
+              <!--Picker options-->
+              Picker options
             </div>
 
             <div class="col-md-6">
-              <!--default-->
-              Date Time Picker
+              <!--Format-->
+              <!--https://element.eleme.io/#/en-US/component/date-picker#date-formats-->
+              <DatePicker
+                class="mb-3"
+                rules="required"
+                size="medium"
+                type="datetime"
+                placeholder="Format time picker"
+                vid="format_time_picker"
+                value-format="dd-MM-yyyy hh:mm:ss"
+                :label="'Format time picker'"
+                :field="'Format time picker'"
+                @change="dateTimePicker.format = $event" />
             </div>
           </div>
 
@@ -56,16 +92,21 @@
 
 <script>
 
+import DatePicker from '@/components/Form/DatePicker'
 export default {
   name: 'ElementDateTimePicker',
 
   components: {
+    DatePicker
   },
 
   data () {
     return {
       dateTimePicker: {
-        default: ''
+        default: '',
+        default_time: '',
+        picker_options: '',
+        format: ''
       }
     }
   }

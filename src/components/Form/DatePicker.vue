@@ -25,6 +25,7 @@
         v-model="date"
         :size="size"
         :type="type"
+        :default-time="defaultTime"
         :placeholder="placeholder"
         :picker-options="pickerOptions"
         :value-format="valueFormat"
@@ -97,6 +98,11 @@ export default {
 
     valueFormat: {
       type: String,
+      default: ''
+    },
+
+    defaultTime: {
+      type: [String, Array],
       default: ''
     }
   },
