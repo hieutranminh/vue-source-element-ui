@@ -26,10 +26,50 @@
                 type="date"
                 placeholder="Date picker format"
                 vid="date_picker_format"
-                value-format="DD-MM-yyyy"
+                value-format="dd-MM-yyyy"
                 :label="'Date picker format'"
                 :field="'Date picker format'"
                 @change="datePicker.date_format = $event" />
+
+              <!--Date format timestamp-->
+              <DatePicker
+                class="mb-3"
+                rules="required"
+                size="medium"
+                type="date"
+                placeholder="Date format timestamp"
+                vid="date_format_timestamp"
+                value-format="timestamp"
+                :label="'Date format timestamp'"
+                :field="'Date format timestamp'"
+                @change="datePicker.date_timestamp = $event" />
+
+              <!--Date set value-->
+              <DatePicker
+                class="mb-3"
+                rules="required"
+                size="medium"
+                type="date"
+                placeholder="Date set value"
+                vid="date_set_value"
+                date-value="2021/05/12"
+                value-format="yyyy/MM/dd"
+                :label="'Date set value'"
+                :field="'Date set value'"
+                @change="datePicker.set_date = $event" />
+
+              <!--Date picker option-->
+              <DatePicker
+                class="mb-3"
+                rules="required"
+                size="medium"
+                type="date"
+                placeholder="Date picker option"
+                vid="date_picker_option"
+                :options="true"
+                :label="'Date picker option'"
+                :field="'Date picker option'"
+                @change="datePicker.date_options = $event" />
             </div>
 
             <div class="col-md-6">
@@ -91,6 +131,8 @@ export default {
       datePicker: {
         date: '',
         date_format: '',
+        date_timestamp: '',
+        set_date: '',
         date_options: '',
         week: '',
         month: '',
