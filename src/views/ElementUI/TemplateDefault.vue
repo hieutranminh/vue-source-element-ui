@@ -2,21 +2,30 @@
   <div class="card">
     <div class="card-body">
       <div class="row">
-        <div class="col-md-4">
-          <!--Upload default-->
-          <UploadFile
-            rules="required"
-            vid="upload_default"
-            type-accept="png,jpeg"
-            :accept="'.png, .jpg, .jpeg'"
-            :max-size="1"
-            :label="'Upload default'"
-            :field="'Upload default'"
-            @onSuccess="upload.default = $event" />
-        </div>
+        <div class="col-md-8">
+          <!--Default-->
+          <div class="row">
+            <div class="col-md-6">
+              <!--default-->
+              Default
+            </div>
 
-        <div class="col-md-4">
-          Upload
+            <div class="col-md-6">
+              <!--default-->
+              Default
+            </div>
+          </div>
+
+          <!--Date picker range-->
+          <div class="row">
+            <div class="col-md-12">
+              <hr>
+              <!--Time Range-->
+              <h5 class="text-info">
+                Default
+              </h5>
+            </div>
+          </div>
         </div>
 
         <!--Object Data-->
@@ -47,12 +56,10 @@
 
 <script>
 
-import UploadFile from '@/components/Form/UploadFile'
 export default {
-  name: 'ElementUpload',
+  name: 'TemplateDefault',
 
   components: {
-    UploadFile
   },
 
   data () {

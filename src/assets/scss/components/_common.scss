@@ -37,10 +37,38 @@
 .el-input__icon {
   transition: none!important;
 }
-
 .el-checkbox__label {
   font-weight: 500;
 }
 .el-radio__label {
   font-weight: 500;
+}
+.el-range-separator {
+  white-space: nowrap;
+}
+
+.avatar-uploader {
+  .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      border-color: #409EFF;
+    }
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+  }
+  .avatar {
+    width: 150px;
+    height: 150px;
+    display: block;
+  }
 }

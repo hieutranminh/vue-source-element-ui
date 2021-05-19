@@ -20,15 +20,18 @@
     <!--Field-->
     <div
       :class="{'has-error': errors[0]}">
-      <!--Timepicker-->
-      <el-time-picker
-        v-model="timeRange"
-        is-range
-        :value-format="valueFormat"
+      <!--Datepicker-->
+      <el-date-picker
+        v-model="dateRange"
+        :type="type"
+        :size="size"
+        :unlink-panels="unlinkPanels"
         :range-separator="rangeSeparator"
         :start-placeholder="startPlaceholder"
         :end-placeholder="endPlaceholder"
-        :arrow-control="arrowControl"
+        :picker-options="pickerOptions"
+        :format="format"
+        :value-format="valueFormat"
         @change="onChange" />
 
       <!--Message Error-->
@@ -43,7 +46,7 @@
 
 <script>
 export default {
-  name: 'TimePickerRange',
+  name: 'DatePickerRange',
 
   props: {
     label: {
@@ -56,27 +59,17 @@ export default {
       default: ''
     },
 
+    type: {
+      type: String,
+      default: 'daterange'
+    },
+
     rules: {
       type: String,
       default: ''
     },
 
     vid: {
-      type: String,
-      default: ''
-    },
-
-    timeValue: {
-      type: [String, Date, Array],
-      default: () => []
-    },
-
-    size: {
-      type: String,
-      default: ''
-    },
-
-    valueFormat: {
       type: String,
       default: ''
     },
@@ -88,15 +81,40 @@ export default {
 
     startPlaceholder: {
       type: String,
-      default: 'Start time'
+      default: 'Start date'
     },
 
     endPlaceholder: {
       type: String,
-      default: 'End time'
+      default: 'End date'
     },
 
-    arrowControl: {
+    size: {
+      type: String,
+      default: ''
+    },
+
+    prefixIcon: {
+      type: String,
+      default: ''
+    },
+
+    valueFormat: {
+      type: String,
+      default: ''
+    },
+
+    format: {
+      type: String,
+      default: 'yyyy-MM-dd'
+    },
+
+    pickerOptions: {
+      type: Object,
+      default: () => {}
+    },
+
+    unlinkPanels: {
       type: Boolean,
       default: false
     }
@@ -104,9 +122,17 @@ export default {
 
   data () {
     return {
-      timeRange: ''
+      dateRange: ''
     }
   },
+
+  // created () {
+  //   if (this.dateValue) {
+  //     this.date = this.dateValue
+  //
+  //     this.$emit('change', this.date)
+  //   }
+  // },
 
   methods: {
     onChange (value) {

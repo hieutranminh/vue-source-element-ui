@@ -27,7 +27,8 @@
         :type="type"
         :default-time="defaultTime"
         :placeholder="placeholder"
-        :picker-options="options ? pickerOptions : {}"
+        :picker-options="pickerOptions"
+        :format="format"
         :value-format="valueFormat"
         @change="onChange" />
 
@@ -77,7 +78,7 @@ export default {
     },
 
     dateValue: {
-      type: [String, Date],
+      type: [String, Date, Array],
       default: ''
     },
 
@@ -96,54 +97,30 @@ export default {
       default: ''
     },
 
+    format: {
+      type: String,
+      default: 'yyyy-MM-dd'
+    },
+
     defaultTime: {
       type: [String, Array],
       default: ''
     },
 
-    options: {
-      type: Boolean,
-      default: false
+    pickerOptions: {
+      type: Object,
+      default: () => {}
     }
   },
 
   data () {
     return {
-      date: '',
-      pickerOptions: {
-        disabledDate (time) {
-          return time.getTime() > Date.now()
-        },
-        shortcuts: [
-          {
-            text: 'Today',
-            onClick (picker) {
-              picker.$emit('pick', new Date())
-            }
-          },
-          {
-            text: 'Yesterday',
-            onClick (picker) {
-              const date = new Date()
-              date.setTime(date.getTime() - 3600 * 1000 * 24)
-              picker.$emit('pick', date)
-            }
-          },
-          {
-            text: 'A week ago',
-            onClick (picker) {
-              const date = new Date()
-              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7)
-              picker.$emit('pick', date)
-            }
-          }
-        ]
-      }
+      date: ''
     }
   },
 
   created () {
-    if (this.dateValue) {
+    if (this.dateValue.length) {
       this.date = this.dateValue
 
       this.$emit('change', this.date)

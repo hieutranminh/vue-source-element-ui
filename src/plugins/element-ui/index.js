@@ -20,7 +20,10 @@ import {
   ColorPicker,
   TimeSelect,
   TimePicker,
-  DatePicker
+  DatePicker,
+  Upload,
+  Loading,
+  Message
 } from 'element-ui'
 
 // configure language
@@ -45,3 +48,6 @@ Vue.use(ColorPicker)
 Vue.use(TimeSelect)
 Vue.use(TimePicker)
 Vue.use(DatePicker)
+Vue.use(Loading)
+Vue.use(Upload)
+Vue.prototype.$message = Message
