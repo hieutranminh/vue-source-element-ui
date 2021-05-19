@@ -25,6 +25,7 @@
         v-model="dateRange"
         :type="type"
         :size="size"
+        :default-time="defaultTime"
         :unlink-panels="unlinkPanels"
         :range-separator="rangeSeparator"
         :start-placeholder="startPlaceholder"
@@ -106,7 +107,12 @@ export default {
 
     format: {
       type: String,
-      default: 'yyyy-MM-dd'
+      default: ''
+    },
+
+    defaultTime: {
+      type: [String, Array],
+      default: ''
     },
 
     pickerOptions: {
