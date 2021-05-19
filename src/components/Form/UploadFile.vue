@@ -28,6 +28,7 @@
         :auto-upload="autoUpload"
         :accept="accept"
         :multiple="multiple"
+        :on-change="onChange"
         :on-success="onSuccess"
         :on-error="onError"
         :before-upload="beforeUpload">
@@ -112,6 +113,12 @@ export default {
   },
 
   methods: {
+    onChange (file) {
+      if (!this.autoUpload) {
+        console.log('onChange', file)
+      }
+    },
+
     onSuccess (res, file) {
       this.notifySuccess('Upload picture success')
 
