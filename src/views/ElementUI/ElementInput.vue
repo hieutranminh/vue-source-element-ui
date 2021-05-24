@@ -215,7 +215,7 @@
 
 <script>
 
-import InputField from '@/components/Form/InputField'
+import InputField from '@/components/FormElementUI/InputField'
 
 export default {
   name: 'ElementInput',

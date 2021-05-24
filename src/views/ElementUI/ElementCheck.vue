@@ -266,13 +266,13 @@
 
 <script>
 
-import CheckboxField from '@/components/Form/CheckboxField'
-import CheckboxGroup from '@/components/Form/CheckboxGroup'
-import CheckboxButtonGroup from '@/components/Form/CheckboxButtonGroup'
-import RadioGroup from '@/components/Form/RadioGroup'
+import CheckboxField from '@/components/FormElementUI/CheckboxField'
+import CheckboxGroup from '@/components/FormElementUI/CheckboxGroup'
+import CheckboxButtonGroup from '@/components/FormElementUI/CheckboxButtonGroup'
+import RadioGroup from '@/components/FormElementUI/RadioGroup'
 import { LIST_CHECKBOX, LIST_RADIO } from '@/enum/options'
-import RadioButtonGroup from '@/components/Form/RadioButtonGroup'
-import SwitchField from '@/components/Form/SwitchField'
+import RadioButtonGroup from '@/components/FormElementUI/RadioButtonGroup'
+import SwitchField from '@/components/FormElementUI/SwitchField'
 export default {
   name: 'ElementCheck',
 

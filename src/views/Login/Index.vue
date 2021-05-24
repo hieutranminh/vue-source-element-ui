@@ -10,7 +10,7 @@
           alt="logo">
       </div>
 
-      <!--Form-->
+      <!--FormElementUI-->
       <div class="card-body">
         <ValidationObserver
           ref="observer"
@@ -54,7 +54,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import InputField from '@/components/Form/InputField'
+import InputField from '@/components/FormElementUI/InputField'
 
 export default {
   name: 'LoginIndex',

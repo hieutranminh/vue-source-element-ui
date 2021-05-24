@@ -96,5 +96,17 @@ export default [
       ]
     },
     beforeEnter: ResolveGuard([AuthGuard])
+  },
+  {
+    path: '/el_ui/table',
+    name: 'el_ui.table',
+    component: () => import('@/views/ElementUI/ElementTable'),
+    meta: {
+      title: 'el_table',
+      breadcrumbs: [
+        { title: 'el_table', name: 'el_ui.table' }
+      ]
+    },
+    beforeEnter: ResolveGuard([AuthGuard])
   }
 ]

@@ -151,8 +151,8 @@
 
 <script>
 
-import RateField from '@/components/Form/RateField'
-import ColorPickerField from '@/components/Form/ColorPickerField'
+import RateField from '@/components/FormElementUI/RateField'
+import ColorPickerField from '@/components/FormElementUI/ColorPickerField'
 export default {
   name: 'ElementRateColor',
 

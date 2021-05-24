@@ -231,9 +231,9 @@
 
 <script>
 import { OPTIONS_DEFAULT } from '@/enum/select-options'
-import SelectField from '@/components/Form/SelectField'
-import SelectMultiple from '@/components/Form/SelectMultiple'
-import SelectFetchData from '@/components/Form/SelectFetchData'
+import SelectField from '@/components/FormElementUI/SelectField'
+import SelectMultiple from '@/components/FormElementUI/SelectMultiple'
+import SelectFetchData from '@/components/FormElementUI/SelectFetchData'
 
 export default {
   name: 'ElementSelect',

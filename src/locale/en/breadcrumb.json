@@ -8,5 +8,16 @@
   "el_time_select_picker": "ElementUI Time Select & Picker",
   "el_date_picker": "Date Picker",
   "el_date_time_picker": "Date Time Picker",
-  "el_upload": "Upload"
+  "el_upload": "Upload",
+  "el_table": "ElementUI Table",
+  "pure_input": "Pure Input",
+  "pure_select": "Pure Select",
+  "pure_check": "Pure Check & Switch",
+  "pure_date_picker": "Pure Date Picker",
+  "pure_upload": "Upload",
+  "pure_table": "Pure Table",
+  "form_basic": "Validate Before Submit",
+  "form_nested_once": "Form nested once",
+  "form_nested_twice": "Form nested twice",
+  "tabs_form": "Tabs form"
 }

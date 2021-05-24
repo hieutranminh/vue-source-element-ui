@@ -221,10 +221,10 @@
 </template>
 
 <script>
-import TimeSelect from '@/components/Form/TimeSelect'
-import TimePicker from '@/components/Form/TimePicker'
-import TimeSelectRange from '@/components/Form/TimeSelectRange'
-import TimePickerRange from '@/components/Form/TimePickerRange'
+import TimeSelect from '@/components/FormElementUI/TimeSelect'
+import TimePicker from '@/components/FormElementUI/TimePicker'
+import TimeSelectRange from '@/components/FormElementUI/TimeSelectRange'
+import TimePickerRange from '@/components/FormElementUI/TimePickerRange'
 
 export default {
   name: 'ElementTimeSelectPicker',

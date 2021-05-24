@@ -8,6 +8,8 @@ import { AuthGuard, LoginGuard, ResolveGuard } from '@/guards'
 
 // MODULE
 import ElementUIRoute from './modules/element_ui'
+import PureUIRoute from './modules/pure_ui'
+import FormSubmitRoute from './modules/form_submit'
 
 export default [
   // Login
@@ -43,6 +45,8 @@ export default [
 
       // Module
       ...ElementUIRoute,
+      ...PureUIRoute,
+      ...FormSubmitRoute,
 
       // Editor
       {

@@ -232,8 +232,8 @@
 
 <script>
 
-import DatePicker from '@/components/Form/DatePicker'
-import DatePickerRange from '@/components/Form/DatePickerRange'
+import DatePicker from '@/components/FormElementUI/DatePicker'
+import DatePickerRange from '@/components/FormElementUI/DatePickerRange'
 export default {
   name: 'ElementDatePicker',
 

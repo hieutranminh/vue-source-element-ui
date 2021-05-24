@@ -61,7 +61,7 @@
 
 <script>
 
-import UploadFile from '@/components/Form/UploadFile'
+import UploadFile from '@/components/FormElementUI/UploadFile'
 export default {
   name: 'ElementUpload',
 
