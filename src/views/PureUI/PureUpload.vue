@@ -4,7 +4,26 @@
       <div class="row">
         <div class="col-md-8">
           <!--Default-->
-          Upload
+          <UploadFile
+            class="mb-3"
+            vid="upload_default"
+            rules="required|image|ext:jpg,png|size:1024"
+            :accept="'.png, .jpg, .jpeg'"
+            :label="'Upload default'"
+            :field="'Upload default'"
+            :delete-button="true"
+            @onFileSelect="upload.default = $event" />
+
+          <!--Style 01-->
+          <UploadFile01
+            class="mb-3"
+            vid="upload_style_01"
+            rules="required|image|ext:jpg,png|size:1024"
+            :accept="'.png, .jpg, .jpeg'"
+            :label="'Upload style 01'"
+            :field="'Upload style 01'"
+            :delete-button="true"
+            @onFileSelect="upload.style01 = $event" />
         </div>
 
         <!--Object Data-->
@@ -35,16 +54,22 @@
 
 <script>
 
+import UploadFile from '@/components/FormPureUI/UploadFile'
+import UploadFile01 from '@/components/FormPureUI/UploadFile01'
+
 export default {
   name: 'PureUpload',
 
   components: {
+    UploadFile01,
+    UploadFile
   },
 
   data () {
     return {
       upload: {
-        default: ''
+        default: '',
+        style01: ''
       }
     }
   }

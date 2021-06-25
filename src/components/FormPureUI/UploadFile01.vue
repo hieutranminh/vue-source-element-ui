@@ -23,17 +23,15 @@
       :class="{'has-error': errors[0]}">
       <!--Upload-->
       <div class="upload-image">
-        <div
-          v-if="previewUrl"
-          class="preview mb-2">
+        <div class="preview mb-2">
           <!--img-->
           <img
-            :src="previewUrl"
+            :src="previewUrl | imageEmpty"
             alt="picture">
 
           <!--delete-->
           <button
-            v-if="deleteButton"
+            v-if="deleteButton && previewUrl"
             @click.prevent="handleDeleteFile">
             <i class="far fa-trash-alt" />
           </button>
@@ -41,10 +39,18 @@
 
         <input
           :id="vid"
+          ref="upload"
           :accept="accept"
           type="file"
-          @blur="handleEventBlue"
           @change="handleFileChange">
+
+        <button
+          class="btn btn-primary btn-md btn-block"
+          @click.prevent="$refs.upload.click()">
+          <i class="fas fa-upload mr-1" />
+
+          {{ $t('general.choose_file') }}
+        </button>
       </div>
 
       <!--Message Error-->
@@ -59,7 +65,7 @@
 
 <script>
 export default {
-  name: 'UploadFile',
+  name: 'UploadFile01',
 
   props: {
     label: {
@@ -117,15 +123,6 @@ export default {
       }
     },
 
-    handleEventBlue (event) {
-      const target = event.target || event.srcElement
-      if (target.value.length === 0) {
-        console.log('Suspect Cancel was hit, no files selected.')
-      } else {
-        console.log('File selected: ', target.value)
-      }
-    },
-
     handleDeleteFile () {
       console.log('delete')
     }
@@ -144,9 +141,10 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       border: 2px solid var(--blue);
+      border-radius: 4px;
       button {
         position: absolute;
         z-index: 1;
@@ -163,8 +161,8 @@ export default {
         opacity: 0;
       }
       img {
-        width: auto;
-        height: auto;
+        width: 100%;
+        height: 100%;
         max-width: 100%;
         max-height: 100%;
         object-fit: cover;
@@ -174,6 +172,12 @@ export default {
           opacity: 1;
         }
       }
+    }
+    .btn {
+      width: 150px;
+    }
+    input {
+      display: none;
     }
   }
 </style>

@@ -36,6 +36,12 @@ import './assets/scss/main.scss'
 
 import store from './store'
 
+/* ============
+ * FILTER & MIXINS
+ * ============
+ */
+import './utils/filters'
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

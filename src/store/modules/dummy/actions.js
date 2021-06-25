@@ -5,14 +5,15 @@
  * The actions that are available on the
  * account module.
  */
-import axios from 'axios'
 import * as types from './mutation-types'
+import DummyProxy from '@/proxies/DummyProxy'
 
 export default {
   getDummy ({ commit }, params) {
-    return axios.get('https://jsonplaceholder.typicode.com/users')
+    return new DummyProxy()
+      .getOptions()
       .then(res => {
-        commit(types.SET_LIST_DUMMY, res.data)
+        commit(types.SET_LIST_DUMMY, res)
 
         return res
       }).catch((err) => {

@@ -149,9 +149,7 @@ export default {
   // SET data receive
   created () {
     this.$store.dispatch(this.nameActions).then((res) => {
-      if (res.status === 200) {
-        this.list = res.data
-      }
+      this.list = res
     })
   },
 
@@ -163,11 +161,9 @@ export default {
         this.$store.dispatch(this.nameActions).then((res) => {
           this.loading = false
 
-          if (res.status === 200) {
-            this.list = res.data.filter(item => {
-              return item[this.options.label].toLowerCase().indexOf(query.toLowerCase()) > -1
-            })
-          }
+          this.list = res.filter(item => {
+            return item[this.options.label].toLowerCase().indexOf(query.toLowerCase()) > -1
+          })
         })
       } else {
         this.list = []
