@@ -4,36 +4,14 @@
  *
  * The routes and redirects are defined in this file.
  */
+// import { AuthGuard, LoginGuard, ResolveGuard } from '@/guards'
+
+// MODULE
+import ElementUIRoute from './modules/element_ui'
+import PureUIRoute from './modules/pure_ui'
+import FormSubmitRoute from './modules/form_submit'
 
 export default [
-  {
-    path: '/',
-    redirect: '/home',
-  },
-  // Home
-  {
-    path: '/home',
-    name: 'home.index',
-    component: () => import('@/views/Home/Index.vue'),
-
-    // If the user needs to be authenticated to view this page
-    meta: {
-      auth: true,
-    },
-  },
-
-  // Account
-  {
-    path: '/account',
-    name: 'account.index',
-    component: () => import('@/views/Account/Index.vue'),
-
-    // If the user needs to be authenticated to view this page.
-    meta: {
-      auth: true,
-    },
-  },
-
   // Login
   {
     path: '/login',
@@ -42,13 +20,53 @@ export default [
 
     // If the user needs to be a guest to view this page.
     meta: {
-      guest: true,
-    },
+      guest: true
+    }
+    // beforeEnter: ResolveGuard([LoginGuard])
   },
 
-  // Page not found
   {
-    path: '/*',
-    redirect: '/home',
-  },
-];
+    path: '/',
+    component: () => import('@/views/Index'),
+    children: [
+      // Home
+      {
+        path: '/home',
+        name: 'home.index',
+        component: () => import('@/views/Home/Index.vue'),
+        meta: {
+          title: 'home',
+          breadcrumbs: [
+            { title: 'home', name: 'home.index' }
+          ]
+        }
+        // beforeEnter: ResolveGuard([AuthGuard])
+      },
+
+      // Module
+      ...ElementUIRoute,
+      ...PureUIRoute,
+      ...FormSubmitRoute,
+
+      // Editor
+      {
+        path: '/editor',
+        name: 'editor.index',
+        component: () => import('@/views/Editor/Index.vue'),
+        meta: {
+          title: 'editor',
+          breadcrumbs: [
+            { title: 'editor', name: 'editor.index' }
+          ]
+        }
+        // beforeEnter: ResolveGuard([AuthGuard])
+      },
+
+      // Page not found
+      {
+        path: '/*',
+        redirect: '/home'
+      }
+    ]
+  }
+]

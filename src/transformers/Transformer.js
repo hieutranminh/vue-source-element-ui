@@ -18,8 +18,8 @@ export default class Transformer {
    *
    * @returns {Array} The transformed items.
    */
-  static fetchCollection(items) {
-    return items.map((item) => this.fetch(item));
+  static fetchCollection (items) {
+    return items.map((item) => this.fetch(item))
   }
 
   /**
@@ -29,7 +29,7 @@ export default class Transformer {
    *
    * @returns {Array} The transformed items.
    */
-  static sendCollection(items) {
-    return items.map((item) => this.send(item));
+  static sendCollection (items) {
+    return items.map((item) => this.send(item))
   }
 }

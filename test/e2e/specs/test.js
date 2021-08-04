@@ -9,6 +9,6 @@ module.exports = {
       .assert.elementPresent('.card')
       .assert.containsText('h4', 'Login')
       .assert.elementCount('a', 1)
-      .end();
-  },
-};
+      .end()
+  }
+}

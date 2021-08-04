@@ -5,7 +5,7 @@
  * The transformer for the account.
  */
 
-import Transformer from './Transformer';
+import Transformer from './Transformer'
 
 export default class AccountTransformer extends Transformer {
   /**
@@ -15,12 +15,12 @@ export default class AccountTransformer extends Transformer {
    *
    * @returns {Object} The transformed account.
    */
-  static fetch(account) {
+  static fetch (profile) {
     return {
-      email: account.email,
-      firstName: account.first_name,
-      lastName: account.last_name,
-    };
+      name: profile.admin_name,
+      user_name: profile.login_id,
+      company_name: profile.company.company_name
+    }
   }
 
   /**
@@ -30,11 +30,11 @@ export default class AccountTransformer extends Transformer {
    *
    * @returns {Object} The transformed account.
    */
-  static send(account) {
+  static send (account) {
     return {
       email: account.email,
       first_name: account.firstName,
-      last_name: account.lastName,
-    };
+      last_name: account.lastName
+    }
   }
 }

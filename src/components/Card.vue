@@ -2,20 +2,17 @@
   <div class="card">
     <h4
       v-if="hasSlot('header')"
-      :class="classNamesHeader"
-    >
+      :class="classNamesHeader">
       <slot name="header" />
     </h4>
     <div
       v-if="hasSlot('body')"
-      class="card-body"
-    >
+      class="card-body">
       <slot name="body" />
     </div>
     <div
       v-if="hasSlot('footer')"
-      class="card-footer"
-    >
+      class="card-footer">
       <slot name="footer" />
     </div>
   </div>
@@ -31,7 +28,7 @@
  * Gives an idea how components work.
  */
 
-import SlotMixin from '@/mixins/slot';
+import SlotMixin from '@/mixins/slot'
 
 export default {
   /**
@@ -43,7 +40,7 @@ export default {
    * The mixins that the component can use.
    */
   mixins: [
-    SlotMixin,
+    SlotMixin
   ],
 
   /**
@@ -53,8 +50,8 @@ export default {
     contextualStyle: {
       default: 'primary',
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
 
   /**
@@ -67,18 +64,18 @@ export default {
      *
      * @returns {Array} The classes for the header.
      */
-    classNamesHeader() {
-      const classNames = ['card-header'];
+    classNamesHeader () {
+      const classNames = ['card-header']
 
       if (this.contextualStyle) {
-        classNames.push(`bg-${this.contextualStyle}`);
-        classNames.push('text-white');
+        classNames.push(`bg-${this.contextualStyle}`)
+        classNames.push('text-white')
       } else {
-        classNames.push('bg-default');
+        classNames.push('bg-default')
       }
 
-      return classNames;
-    },
-  },
-};
+      return classNames
+    }
+  }
+}
 </script>
