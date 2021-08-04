@@ -6,4 +6,6 @@
  * account module.
  */
 
-export default {};
+export default {
+  profile: (state) => state.profile
+}

@@ -1,3 +1,7 @@
 {
-  "welcome": "Welcome!"
+  "welcome": "Welcome!",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "a_week_ago": "A week ago",
+  "choose_file": "Choose File"
 }

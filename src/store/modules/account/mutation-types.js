@@ -6,8 +6,8 @@
  * on the account module.
  */
 
-export const FIND = 'FIND';
+export const SET_PROFILE = 'SET_PROFILE'
 
 export default {
-  FIND,
-};
+  SET_PROFILE
+}
