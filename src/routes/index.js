@@ -4,7 +4,7 @@
  *
  * The routes and redirects are defined in this file.
  */
-import { AuthGuard, LoginGuard, ResolveGuard } from '@/guards'
+// import { AuthGuard, LoginGuard, ResolveGuard } from '@/guards'
 
 // MODULE
 import ElementUIRoute from './modules/element_ui'
@@ -21,8 +21,8 @@ export default [
     // If the user needs to be a guest to view this page.
     meta: {
       guest: true
-    },
-    beforeEnter: ResolveGuard([LoginGuard])
+    }
+    // beforeEnter: ResolveGuard([LoginGuard])
   },
 
   {
@@ -39,8 +39,8 @@ export default [
           breadcrumbs: [
             { title: 'home', name: 'home.index' }
           ]
-        },
-        beforeEnter: ResolveGuard([AuthGuard])
+        }
+        // beforeEnter: ResolveGuard([AuthGuard])
       },
 
       // Module
@@ -58,8 +58,8 @@ export default [
           breadcrumbs: [
             { title: 'editor', name: 'editor.index' }
           ]
-        },
-        beforeEnter: ResolveGuard([AuthGuard])
+        }
+        // beforeEnter: ResolveGuard([AuthGuard])
       },
 
       // Page not found

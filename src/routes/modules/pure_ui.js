@@ -1,4 +1,4 @@
-import { AuthGuard, ResolveGuard } from '@/guards'
+// import { AuthGuard, ResolveGuard } from '@/guards'
 
 export default [
   {
@@ -10,8 +10,8 @@ export default [
       breadcrumbs: [
         { title: 'pure_input', name: 'pure_ui.input' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/pure_ui/select',
@@ -22,8 +22,8 @@ export default [
       breadcrumbs: [
         { title: 'pure_select', name: 'pure_ui.select' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/pure_ui/check',
@@ -34,8 +34,8 @@ export default [
       breadcrumbs: [
         { title: 'pure_check', name: 'pure_ui.check' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/pure_ui/date_picker',
@@ -46,8 +46,8 @@ export default [
       breadcrumbs: [
         { title: 'pure_date_picker', name: 'pure_ui.date_picker' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/pure_ui/upload',
@@ -58,8 +58,8 @@ export default [
       breadcrumbs: [
         { title: 'pure_upload', name: 'pure_ui.upload' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/pure_ui/table',
@@ -70,7 +70,7 @@ export default [
       breadcrumbs: [
         { title: 'pure_table', name: 'pure_ui.table' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   }
 ]

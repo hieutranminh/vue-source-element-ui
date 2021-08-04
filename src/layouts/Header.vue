@@ -63,24 +63,24 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 
 export default {
   name: 'Header',
 
   methods: {
-    ...mapActions('auth', ['logout']),
+    // ...mapActions('auth', ['logout']),
 
     goProfile () {
       console.log('go profile')
     },
 
     async handleLogout () {
-      try {
-        await this.logout()
-      } catch (e) {
-        return e
-      }
+      // try {
+      //   await this.logout()
+      // } catch (e) {
+      //   return e
+      // }
 
       await this.$router.push({ name: 'login.index' })
     }

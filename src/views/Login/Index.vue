@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 import InputField from '@/components/FormElementUI/InputField'
 
 export default {
@@ -75,7 +75,7 @@ export default {
   },
 
   methods: {
-    ...mapActions('auth', ['login']),
+    // ...mapActions('auth', ['login']),
 
     async validateBeforeSubmit () {
       const isValid = await this.$refs.observer.validate()
@@ -88,14 +88,15 @@ export default {
     },
 
     handleSubmit () {
-      this.login(this.form).then((res) => {
-        this.isSubmit = false
-
-        if (res && res.token) {
-          this.$router.push({ name: 'home.index' })
-        }
-        // check submit error
-      })
+      this.$router.push({ name: 'home.index' })
+      // this.login(this.form).then((res) => {
+      //   this.isSubmit = false
+      //
+      //   if (res && res.token) {
+      //     this.$router.push({ name: 'home.index' })
+      //   }
+      //   // check submit error
+      // })
     }
   }
 }

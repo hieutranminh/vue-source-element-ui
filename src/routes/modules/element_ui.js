@@ -1,4 +1,4 @@
-import { AuthGuard, ResolveGuard } from '@/guards'
+// import { AuthGuard, ResolveGuard } from '@/guards'
 
 export default [
   {
@@ -10,8 +10,8 @@ export default [
       breadcrumbs: [
         { title: 'el_input', name: 'el_ui.input' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/el_ui/select',
@@ -22,8 +22,8 @@ export default [
       breadcrumbs: [
         { title: 'el_select', name: 'el_ui.select' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/el_ui/check',
@@ -34,8 +34,8 @@ export default [
       breadcrumbs: [
         { title: 'el_check', name: 'el_ui.check' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/el_ui/rate',
@@ -46,8 +46,8 @@ export default [
       breadcrumbs: [
         { title: 'el_rate', name: 'el_ui.rate' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/el_ui/time_select_picker',
@@ -58,8 +58,8 @@ export default [
       breadcrumbs: [
         { title: 'el_time_select_picker', name: 'el_ui.time_select_picker' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/el_ui/date_picker',
@@ -70,8 +70,8 @@ export default [
       breadcrumbs: [
         { title: 'el_date_picker', name: 'el_ui.date_picker' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/el_ui/date_time_picker',
@@ -82,8 +82,8 @@ export default [
       breadcrumbs: [
         { title: 'el_date_time_picker', name: 'el_ui.date_time_picker' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/el_ui/upload',
@@ -94,8 +94,8 @@ export default [
       breadcrumbs: [
         { title: 'el_upload', name: 'el_ui.upload' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/el_ui/table',
@@ -106,7 +106,7 @@ export default [
       breadcrumbs: [
         { title: 'el_table', name: 'el_ui.table' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   }
 ]

@@ -17,7 +17,6 @@ export default {
 
         return res
       }).catch((err) => {
-        console.log('Request failed...')
         return err
       })
   }

@@ -1,4 +1,4 @@
-import { AuthGuard, ResolveGuard } from '@/guards'
+// import { AuthGuard, ResolveGuard } from '@/guards'
 
 export default [
   {
@@ -10,8 +10,8 @@ export default [
       breadcrumbs: [
         { title: 'form_basic', name: 'form_submit.basic' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/form_submit/nested_once',
@@ -22,8 +22,8 @@ export default [
       breadcrumbs: [
         { title: 'form_nested_once', name: 'form_submit.nested_once' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/form_submit/nested_twice',
@@ -34,8 +34,8 @@ export default [
       breadcrumbs: [
         { title: 'form_nested_twice', name: 'form_submit.nested_twice' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   },
   {
     path: '/form_submit/tabs_form',
@@ -46,7 +46,7 @@ export default [
       breadcrumbs: [
         { title: 'tabs_form', name: 'form_submit.tabs_form' }
       ]
-    },
-    beforeEnter: ResolveGuard([AuthGuard])
+    }
+    // beforeEnter: ResolveGuard([AuthGuard])
   }
 ]
